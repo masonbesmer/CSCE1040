@@ -8,3 +8,5 @@ Second Exam: July 6, 7th,
 Third Exam: July 20, 21st
 
 One final quiz: July 22nd.
+
+# BEFORE PUBLISHING REPO DELETE SFTP CONFIGURATINON FILE!
