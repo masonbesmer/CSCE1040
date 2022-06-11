@@ -6,7 +6,7 @@ using namespace std;
 
 class Loan
 {
-    private:
+    private: //variables
         int LoanID;
         int BookID;
         int PatronID;
