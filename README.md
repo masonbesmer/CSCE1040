@@ -1,7 +1,7 @@
 # CSCE1040
 Everything for CSCE1040 in Summer 2022
 
-First Exam: June 15, 16th,
+First Exam: June 22, 23th,
 
 Second Exam: July 6, 7th,
 
