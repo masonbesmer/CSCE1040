@@ -7,5 +7,10 @@
             "username": "mab0870",
             "root": "/home/mab0870"
         }
-    ]
+    ],
+    "files.associations": {
+        "*.tcc": "cpp",
+        "ostream": "cpp",
+        "iostream": "cpp"
+    }
 }

@@ -1,0 +1,6 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/workspaces/CSCE1040'
+make: Leaving directory '/workspaces/CSCE1040'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+
