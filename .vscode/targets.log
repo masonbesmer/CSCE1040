@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Jun 22 00:33:47 2022
+# Make data base, printed on Wed Jun 22 13:57:18 2022
 
 # Variables
 
@@ -45,7 +45,7 @@ GITHUB_GRAPHQL_URL = https://api.github.com/graphql
 # environment
 RUBY_HOME = /opt/ruby/lts
 # environment
-GITHUB_TOKEN = ghu_PtkHxkMAi5bzW7yJyboMKYy8vUeS0539nZsU
+GITHUB_TOKEN = ghu_evGG3Ui0ikIDgRwOBRbD9s0dOH0DnS0slAPR
 # makefile
 MAKEFILE_LIST := 
 # environment
@@ -83,7 +83,7 @@ VSCODE_LOG_STACK = false
 # environment
 NUGET_XMLDOC_MODE = skip
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-21913d15-69f7-4115-8252-c12d60b1fd57.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-c0a2a895-17d9-4f46-9bb7-9bafb5d34fb5.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -151,7 +151,7 @@ JAVA_HOME = /opt/java/lts
 # default
 MAKE_VERSION := 4.2.1
 # environment
-GITHUB_CODESPACE_TOKEN = AD7C3UCTC53T6YOWTHQZXW3CWMGBLANCNFSM4ABSNVVQ
+GITHUB_CODESPACE_TOKEN = AD7C3UDYXM42CQJIKGQ5LILCWPEGVANCNFSM4ABSNVVQ
 # makefile
 .DEFAULT_GOAL := 
 # environment
@@ -278,7 +278,6 @@ GNUmakefile:
 #  File does not exist.
 #  File has been updated.
 #  Failed to be updated.
- 
 
 # files hash-table stats:
 # Load=6/1024=1%, Rehash=0, Collisions=0/15=0%
@@ -286,6 +285,7 @@ GNUmakefile:
 
 # No 'vpath' search paths.
 
+ 
 # No general ('VPATH' variable) search path.
 
 # strcache buffers: 1 (0) / strings = 19 / storage = 188 B / avg = 9 B
@@ -294,6 +294,6 @@ GNUmakefile:
 # strcache performance: lookups = 22 / hit rate = 13%
 # hash-table stats:
 # Load=19/8192=0%, Rehash=0, Collisions=1/22=5%
-# Finished Make data base on Wed Jun 22 00:33:47 2022
+# Finished Make data base on Wed Jun 22 13:57:18 2022
 
  

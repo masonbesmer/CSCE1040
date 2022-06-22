@@ -1,5 +1,5 @@
-/*
-*/
+#ifndef DRIVER_H
+#define DRIVER_H
 #include <iostream>
 #include <string>
 #include <ctime>
@@ -20,7 +20,7 @@ class Driver
         string Notes;
     public:
         Driver();
-        Driver(int, string, int, int, bool, double, bool, bool, string);
+        Driver(string, int, int, int, bool, double, bool, bool, string);
         void SetDriverID(int);
         void SetDriverName(string);
         void SetDriverPhone(int);
@@ -42,3 +42,5 @@ class Driver
         bool GetAllowPets();
         string GetNotes();
 };
+
+#endif

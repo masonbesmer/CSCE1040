@@ -1,9 +1,9 @@
-#include "Driver.h"
+#include "driver.h"
 
 Driver::Driver()
 {
-    DriverID = 0;
     DriverName = "Johnny Manziel";
+    DriverID = 0;
     DriverPhone = 1234567890;
     VehicleCapacity = 5;
     CanHandicap = true;
@@ -13,7 +13,7 @@ Driver::Driver()
     Notes = "fsef";
 }
 
-Driver::Driver(int did, string dname, int phone, int cap, bool hcp, double rtng, bool ava, bool pets, string notes)
+Driver::Driver(string dname, int did, int phone, int cap, bool hcp, double rtng, bool ava, bool pets, string notes)
 {
     DriverID = did;
     DriverName = dname;
@@ -71,10 +71,56 @@ void Driver::SetNotes(string notes)
     Notes = notes;
 }
 
+int Driver::GetDriverID()
+{
+    return DriverID;
+}
+
+string Driver::GetDriverName()
+{
+    return DriverName;
+}
+
+int Driver::GetDriverPhone()
+{
+    return DriverPhone;
+}
+
+int Driver::GetVehicleCapacity()
+{
+    return VehicleCapacity;
+}
+
+bool Driver::GetCanHandicap()
+{
+    return CanHandicap;
+}
+
+double Driver::GetRating()
+{
+    return Rating;
+}
+
+bool Driver::GetIsAvailable()
+{
+    return IsAvailable;
+}
+
+bool Driver::GetAllowPets()
+{
+    return AllowPets;
+}
+
+string Driver::GetNotes()
+{
+    return Notes;
+}
+
 void Driver::PrintDriver()
 {
-    cout << "Driver ID: " << DriverID << endl;
+    cout << "==============================================================" << endl;
     cout << "Driver Name: " << DriverName << endl;
+    cout << "Driver ID: " << DriverID << endl;
     cout << "Driver Phone: " << DriverPhone << endl;
     cout << "Vehicle Capacity: " << VehicleCapacity << endl;
     cout << "Can Handicap: " << CanHandicap << endl;
@@ -82,4 +128,5 @@ void Driver::PrintDriver()
     cout << "Is Available: " << IsAvailable << endl;
     cout << "Allow Pets: " << AllowPets << endl;
     cout << "Notes: " << Notes << endl;
+    cout << "==============================================================" << endl;
 }
