@@ -6,6 +6,8 @@
 
 using namespace std;
 
+enum Type {Compact = 'C', Sedan = 'S', SUV = 'U', Van = 'V', Other = 'O'};
+
 class Driver
 {
     private:
@@ -18,9 +20,11 @@ class Driver
         bool IsAvailable;
         bool AllowPets;
         string Notes;
+        Type VehicleType;
+
     public:
         Driver();
-        Driver(string, int, int, int, bool, double, bool, bool, string);
+        Driver(int, string, int, int, Type, bool, double, bool, bool, string);
         void SetDriverID(int);
         void SetDriverName(string);
         void SetDriverPhone(int);
@@ -31,6 +35,7 @@ class Driver
         void SetAllowPets(bool);
         void SetNotes(string);
         void PrintDriver();
+        void SetVehicleType(char);
 
         int GetDriverID();
         string GetDriverName();
@@ -41,6 +46,7 @@ class Driver
         bool GetIsAvailable();
         bool GetAllowPets();
         string GetNotes();
+        Type GetVehicleType();
 };
 
 #endif

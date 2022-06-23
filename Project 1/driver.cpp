@@ -13,7 +13,7 @@ Driver::Driver()
     Notes = "fsef";
 }
 
-Driver::Driver(string dname, int did, int phone, int cap, bool hcp, double rtng, bool ava, bool pets, string notes)
+Driver::Driver(int did, string dname, int phone, int cap, Type typ, bool hcp, double rtng, bool ava, bool pets, string notes)
 {
     DriverID = did;
     DriverName = dname;
@@ -24,6 +24,7 @@ Driver::Driver(string dname, int did, int phone, int cap, bool hcp, double rtng,
     IsAvailable = ava;
     AllowPets = pets;
     Notes = notes;
+    VehicleType = typ;
 }
 
 void Driver::SetDriverID(int id)
@@ -111,9 +112,36 @@ bool Driver::GetAllowPets()
     return AllowPets;
 }
 
+Type Driver::GetVehicleType()
+{
+    return VehicleType;
+}
+
 string Driver::GetNotes()
 {
     return Notes;
+}
+
+void Driver::SetVehicleType(char VehicleType)
+{
+    switch (VehicleType)
+    {
+        case 'C':
+            this->VehicleType = Compact;
+            break;
+        case 'S':
+            this->VehicleType = Sedan;
+            break;
+        case 'U':
+            this->VehicleType = SUV;
+            break;
+        case 'V':
+            this->VehicleType = Van;
+            break;
+        default:
+            this->VehicleType = Other;
+            break;
+    }
 }
 
 void Driver::PrintDriver()
@@ -123,6 +151,26 @@ void Driver::PrintDriver()
     cout << "Driver ID: " << DriverID << endl;
     cout << "Driver Phone: " << DriverPhone << endl;
     cout << "Vehicle Capacity: " << VehicleCapacity << endl;
+    //vehicle type
+    cout << "Vehicle Type: ";
+    switch (VehicleType)
+    {
+        case Compact:
+            cout << "Compact" << endl;
+            break;
+        case Sedan:
+            cout << "Sedan" << endl;
+            break;
+        case SUV:
+            cout << "SUV" << endl;
+            break;
+        case Van:
+            cout << "Van" << endl;
+            break;
+        default:
+            cout << "Other" << endl;
+            break;
+    }
     cout << "Can Handicap: " << CanHandicap << endl;
     cout << "Rating: " << Rating << endl;
     cout << "Is Available: " << IsAvailable << endl;

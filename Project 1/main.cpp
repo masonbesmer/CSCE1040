@@ -1,11 +1,10 @@
-#include "Driver.h"
+#include "driver.h"
 
 int main()
 {
     Driver d1;
     d1.PrintDriver();
-
-    Driver d2(1, "Johnny Manziel", 123457890, 53, true, 556, true, false, "do not let this dinouncer's table");
+    Driver d2(1, "Johnny Manziel", 123457890, 53, 'V', true, 556, true, false, "do not let this dinouncer's table");
     d2.PrintDriver();
 
     Driver d3;
