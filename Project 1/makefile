@@ -1,6 +1,6 @@
-OBJS	= car.o driver.o drivers.o main.o passenger.o
-SOURCE	= car.cpp driver.cpp drivers.cpp main.cpp passenger.cpp
-HEADER	= car.h driver.h drivers.h passenger.h
+OBJS	= car.o driver.o drivers.o main.o passenger.o ride.o
+SOURCE	= car.cpp driver.cpp drivers.cpp main.cpp passenger.cpp ride.cpp
+HEADER	= car.h driver.h drivers.h passenger.h ride.h
 OUT	= a.out
 CC	 = g++
 FLAGS	 = -g -c -Wall
@@ -23,6 +23,9 @@ main.o: main.cpp
 
 passenger.o: passenger.cpp
 	$(CC) $(FLAGS) passenger.cpp 
+
+ride.o: ride.cpp
+	$(CC) $(FLAGS) ride.cpp 
 
 
 clean:

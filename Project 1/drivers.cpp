@@ -41,8 +41,13 @@ void Drivers::AddDriver() {
     cout << "Is Available: "; cin >> IsAvailable;
     cout << "Allow Pets: "; cin >> AllowPets;
     cout << "Vehicle Type /// C = Compact, S = Sedan, U = SUV, V = Van, O = Other): "; cin >> VehicleType;
-    VehicleType = (Type)VehicleType;
-    Driver *newDriver = new Driver(DriverID, DriverName, DriverPhone, VehicleCapacity, VehicleType, CanHandicap, Rating, IsAvailable, AllowPets, Notes);
+    Type tempType = (Type)VehicleType;
+    Driver *newDriver = new Driver(DriverID, DriverName, DriverPhone, VehicleCapacity, tempType, CanHandicap, Rating, IsAvailable, AllowPets, Notes);
+    DriverList[DriverID] = newDriver;
+    IncrementDriverCount();
+}
 
-
+void Drivers::AddDriver(Driver *newDriver) {
+    DriverList[newDriver->GetDriverID()] = newDriver;
+    IncrementDriverCount();
 }

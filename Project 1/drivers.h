@@ -20,7 +20,9 @@ class Drivers {
         void SaveDrivers();
         void LoadDrivers();
         void AddDriver();
+        void AddDriver(Driver*);
         void RemoveDriver();
+        void RemoveDriver(int);
         void PrintDrivers();
         void PrintDriver();
         void EditDriver();
