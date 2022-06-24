@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Jun 23 00:44:30 2022
+# Make data base, printed on Fri Jun 24 14:01:12 2022
 
 # Variables
 
@@ -45,7 +45,7 @@ GITHUB_GRAPHQL_URL = https://api.github.com/graphql
 # environment
 RUBY_HOME = /opt/ruby/lts
 # environment
-GITHUB_TOKEN = ghu_QIYBp1QJ75QUvQgi9WeSa5Kmg9QFQ22CwQQe
+GITHUB_TOKEN = ghu_uAh9NnoEwOCiw8ZkA38CoeFsC1wFp44DWInp
 # makefile
 MAKEFILE_LIST := 
 # environment
@@ -85,7 +85,7 @@ VSCODE_LOG_STACK = false
 # environment
 NUGET_XMLDOC_MODE = skip
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-0feb6661-eba3-4121-b52c-19080d7f1967.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-13db691a-632e-4e63-a286-ffc4382b8b5f.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -153,7 +153,7 @@ JAVA_HOME = /opt/java/lts
 # default
 MAKE_VERSION := 4.2.1
 # environment
-GITHUB_CODESPACE_TOKEN = AD7C3UF7JLUDZ3C6WDDMME3CWRIBZANCNFSM4ABSNVVQ
+GITHUB_CODESPACE_TOKEN = AD7C3UA7OFB7ECZ324FLFV3CWZU5HANCNFSM4ABSNVVQ
 # makefile
 .DEFAULT_GOAL := 
 # environment
@@ -182,7 +182,6 @@ SHELL = /bin/sh
 BROWSER = /vscode/bin/linux-x64/30d9c6cd9483b2cc586687151bcbcd635f373630/bin/helpers/browser.sh
 # environment
 PHP_ROOT = /home/codespace/.php
- 
 # environment
 RepositoryName = null
 # environment
@@ -279,6 +278,7 @@ makefile:
 GNUmakefile:
 #  Implicit rule search has been done.
 #  File does not exist.
+ 
 #  File has been updated.
 #  Failed to be updated.
 
@@ -296,6 +296,6 @@ GNUmakefile:
 # strcache performance: lookups = 25 / hit rate = 12%
 # hash-table stats:
 # Load=22/8192=0%, Rehash=0, Collisions=1/25=4%
-# Finished Make data base on Thu Jun 23 00:44:30 2022
+# Finished Make data base on Fri Jun 24 14:01:12 2022
 
  

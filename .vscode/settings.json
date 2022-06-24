@@ -1,11 +1,11 @@
 {
     "sshfs.configs": [
         {
-            "name": "CSE_Server",
+            "name": "cse_server",
             "host": "cse01.cse.unt.edu",
-            "password": true,
             "username": "mab0870",
-            "root": "/home/mab0870"
+            "root": "/home/mab0870",
+            "privateKeyPath": "/workspaces/CSCE1040/.vscode/untcse01.ppk"
         }
     ],
     "files.associations": {
