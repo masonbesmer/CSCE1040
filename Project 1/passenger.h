@@ -1,5 +1,6 @@
 #ifndef PASSENGER_H
 #define PASSENGER_H
+
 #include <iostream>
 #include <string>
 #include <ctime>

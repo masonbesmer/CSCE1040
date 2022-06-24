@@ -86,7 +86,7 @@ double Passenger::GetRatingMin() {
 }
 
 void Passenger::PrintPassenger() {
-    cout << "==============================================================" << endl;
+    cout << "====================Passenger Info======================" << endl;
     cout << "Name: " << name << endl;
     cout << "ID: " << id << endl;
     cout << "Payment Method: ";
@@ -105,5 +105,5 @@ void Passenger::PrintPassenger() {
     cout << "Handicap: " << handicap << endl;
     cout << "Pets: " << pets << endl;
     cout << "Rating Min: " << ratingMin << endl;
-    cout << "==============================================================" << endl;
+    cout << "========================================================" << endl;
 }

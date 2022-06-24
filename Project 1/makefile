@@ -1,6 +1,6 @@
-OBJS	= car.o driver.o drivers.o main.o passenger.o ride.o
-SOURCE	= car.cpp driver.cpp drivers.cpp main.cpp passenger.cpp ride.cpp
-HEADER	= car.h driver.h drivers.h passenger.h ride.h
+OBJS	= driver.o drivers.o main.o passenger.o ride.o rides.o
+SOURCE	= driver.cpp drivers.cpp main.cpp passenger.cpp ride.cpp rides.cpp
+HEADER	= driver.h drivers.h passenger.h ride.h rides.h
 OUT	= a.out
 CC	 = g++
 FLAGS	 = -g -c -Wall
