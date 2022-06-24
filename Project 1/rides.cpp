@@ -29,7 +29,9 @@ void Rides::AddRide()
     char RideStatus;
     double Rating;
 
-    cout << "Ride ID: "; cin >> RideID;
+    RideID = RideList.size() + 1;
+
+    cout << "Ride ID will be " << RideID << endl;
     cout << "Party Size: "; cin >> PartySize;
     cout << "Pickup Location: "; getline(cin, PickupLocation);
     cout << "Dropoff Location: "; getline(cin, DropoffLocation);
@@ -48,6 +50,8 @@ void Rides::AddRide()
 
 void Rides::AddRide(Ride *newRide)
 {
+    cout << "Ride ID for ride " << newRide->GetPartySize() << " people with ID#" << newRide->GetRideID() << " will be updated to " << RideList.size() + 1 << endl;
+    newRide->SetRideID(RideList.size() + 1);
     RideList[newRide->GetRideID()] = newRide;
     IncrementRideCount();
 }
@@ -55,7 +59,7 @@ void Rides::AddRide(Ride *newRide)
 void Rides::RemoveRide()
 {
     int RideID;
-    cout << "Ride ID: "; cin >> RideID;
+    cout << "Ride ID to delete: "; cin >> RideID;
     delete RideList[RideID];
     RideList[RideID] = NULL;
     DecrementRideCount();
@@ -112,10 +116,10 @@ void Rides::PrintRide()
     RideList[RideID]->PrintRide();
 }
 
-void PrintEveryRideEver()
+void Rides::PrintEveryRideEver()
 {
-    for (auto it = RideList.begin(); it != RideList.end(); ++it) //first RideList is not defined?????
+    for (auto x : RideList)
     {
-        it->second->PrintRide();
+        x.second->PrintRide();
     }
 }

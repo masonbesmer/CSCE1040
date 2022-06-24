@@ -129,6 +129,7 @@ double Ride::GetRating()
 
 void Ride::PrintRide()
 {
+    cout << "==============================================================" << endl;
     cout << "Ride ID: " << RideID << endl;
     cout << "Party Size: " << PartySize << endl;
     cout << "Pickup Location: " << PickupLocation << endl;
@@ -138,4 +139,5 @@ void Ride::PrintRide()
     cout << "Includes Pets: " << IncludesPets << endl;
     cout << "Ride Status: " << RideStatus << endl;
     cout << "Rating: " << Rating << endl;
+    cout << "==============================================================" << endl;
 }

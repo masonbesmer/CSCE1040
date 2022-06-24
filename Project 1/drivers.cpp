@@ -29,7 +29,9 @@ void Drivers::AddDriver() {
     int DriverID;
     char VehicleType;
 
-    cout << "Driver ID: "; cin >> DriverID;
+    DriverID = DriverList.size() + 1;
+
+    cout << "Driver ID will be " << DriverID << endl;
     cout << "Driver Name: "; getline(cin, DriverName);
     cout << "Notes: "; getline(cin, Notes);
     cin.ignore();
@@ -49,6 +51,8 @@ void Drivers::AddDriver() {
 
 void Drivers::AddDriver(Driver *newDriver)
 {
+    cout << "Driver ID for driver "<< newDriver->GetDriverName() << " with ID#" << newDriver->GetDriverID() << " will be updated to " << DriverList.size() + 1 << endl;
+    newDriver->SetDriverID(DriverList.size() + 1);
     DriverList[newDriver->GetDriverID()] = newDriver;
     IncrementDriverCount();
 }
@@ -106,13 +110,13 @@ void Drivers::EditDriver()
 
 void Drivers::RemoveDriver(Driver *driver) {
     delete DriverList[driver->GetDriverID()];
-    //DriverList[driver->GetDriverID()] = NULL;
+    DriverList[driver->GetDriverID()] = NULL;
     DecrementDriverCount();
 }
 
 void Drivers::PrintDrivers() {
-    for (auto it = DriverList.begin(); it != DriverList.end(); ++it) {
-        it->second->PrintDriver();
+    for (auto x : DriverList) {
+        x.second->PrintDriver();
     }
 }
 

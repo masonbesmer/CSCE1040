@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Jun 24 17:01:05 2022
+# Make data base, printed on Fri Jun 24 18:56:37 2022
 
 # Variables
 
@@ -43,13 +45,11 @@ GITHUB_GRAPHQL_URL = https://api.github.com/graphql
 # environment
 RUBY_HOME = /opt/ruby/lts
 # environment
-GITHUB_TOKEN = ghu_uAh9NnoEwOCiw8ZkA38CoeFsC1wFp44DWInp
+GITHUB_TOKEN = ghu_Uhq05W17WZ6z2DIwkXTopX8Zvnon7V3ee2we
 # makefile
 MAKEFILE_LIST := 
 # environment
 ENABLE_DYNAMIC_INSTALL = true
-# environment
-DEBUG = ,vs-ssh
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
@@ -83,7 +83,7 @@ VSCODE_LOG_STACK = false
 # environment
 NUGET_XMLDOC_MODE = skip
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-db66904b-f810-4289-8726-9bd260f97a2b.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-73e3b271-bd8f-4ec0-b9b8-ebe974d5e7ae.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -119,7 +119,7 @@ VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
 HOME = /home/codespace
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # automatic
 +F = $(notdir $+)
 # environment
@@ -151,7 +151,7 @@ JAVA_HOME = /opt/java/lts
 # default
 MAKE_VERSION := 4.2.1
 # environment
-GITHUB_CODESPACE_TOKEN = AD7C3UA7OFB7ECZ324FLFV3CWZU5HANCNFSM4ABSNVVQ
+GITHUB_CODESPACE_TOKEN = AD7C3UB6X2PKBP72AX6IGJ3CW2R6BANCNFSM4ABSNVVQ
 # makefile
 .DEFAULT_GOAL := 
 # environment
@@ -227,7 +227,7 @@ VSCODE_EXTHOST_WILL_SEND_SOCKET = true
 # environment
 ContainerVersion = 12
 # variable set hash-table stats:
-# Load=108/1024=11%, Rehash=0, Collisions=10/130=8%
+# Load=107/1024=10%, Rehash=0, Collisions=10/129=8%
 
 # Pattern-specific Variable Values
 
@@ -283,6 +283,7 @@ GNUmakefile:
 # Load=6/1024=1%, Rehash=0, Collisions=0/15=0%
 # VPATH Search Paths
 
+ 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
@@ -292,10 +293,7 @@ GNUmakefile:
 
 # strcache performance: lookups = 25 / hit rate = 12%
 # hash-table stats:
- 
-make: *** No rule to make target 'all'.  Stop.
-
 # Load=22/8192=0%, Rehash=0, Collisions=1/25=4%
-# Finished Make data base on Fri Jun 24 17:01:05 2022
+# Finished Make data base on Fri Jun 24 18:56:37 2022
 
  

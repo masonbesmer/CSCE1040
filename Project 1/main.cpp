@@ -30,8 +30,7 @@ int main()
 
     f.PrintDrivers();
 
-    Ride a1;
-    Ride a2;
+    Ride a1,a2,a3;
 
     a1.SetRideID(1);
     a1.SetPartySize(2);
@@ -53,12 +52,23 @@ int main()
     a2.SetRideStatus('L');
     a2.SetRating(5);
 
+    a3.SetRideID(3);
+    a3.SetPartySize(4);
+    a3.SetPickupLocation("123 Main St");
+    a3.SetDropoffLocation("456 Main St");
+    a3.SetPickupTime(time(0));
+    a3.SetDropoffTime(time(0));
+    a3.SetIncludesPets(true);
+    a3.SetRideStatus('L');
+    a3.SetRating(5);
+
     Rides r;
     
     r.AddRide(&a1);
     r.AddRide(&a2);
+    r.AddRide(&a3);
 
-    r.PrintRides();
+    r.PrintEveryRideEver();
 
     return 0;
 }

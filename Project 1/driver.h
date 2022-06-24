@@ -21,7 +21,6 @@ class Driver
         bool AllowPets;
         string Notes;
         Type VehicleType;
-
     public:
         Driver();
         Driver(int, string, int, int, Type, bool, double, bool, bool, string);
