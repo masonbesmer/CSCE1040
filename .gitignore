@@ -30,5 +30,4 @@
 *.exe
 *.out
 *.app
-.vscode/targets.log
-.vscode/untcse01.ppk
+.vscode/*
