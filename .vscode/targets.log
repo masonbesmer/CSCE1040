@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Jun 25 19:52:21 2022
+# Make data base, printed on Mon Jun 27 18:30:21 2022
 
 # Variables
 
@@ -45,11 +45,13 @@ GITHUB_GRAPHQL_URL = https://api.github.com/graphql
 # environment
 RUBY_HOME = /opt/ruby/lts
 # environment
-GITHUB_TOKEN = ghu_LdCyE93jnGs1plut0gJcaEkvqY4aj02BtfHr
+GITHUB_TOKEN = ghu_8kDLO8ZlvXPgUXnS1YGI3fJLBkCAro1SieYc
 # makefile
 MAKEFILE_LIST := 
 # environment
 ENABLE_DYNAMIC_INSTALL = true
+# environment
+DEBUG = ,vs-ssh
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
@@ -83,7 +85,7 @@ VSCODE_LOG_STACK = false
 # environment
 NUGET_XMLDOC_MODE = skip
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-6d884008-600d-4bf4-94ff-bd6c7a3352ff.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-cda6fa1f-d730-41ff-8009-a38ca5d1e5b4.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -119,7 +121,7 @@ VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
 HOME = /home/codespace
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # automatic
 +F = $(notdir $+)
 # environment
@@ -151,7 +153,7 @@ JAVA_HOME = /opt/java/lts
 # default
 MAKE_VERSION := 4.2.1
 # environment
-GITHUB_CODESPACE_TOKEN = AD7C3UDKIL4JCAMXOKYMCWLCXAICFANCNFSM4ABSNVVQ
+GITHUB_CODESPACE_TOKEN = AD7C3UBQFMJHQNWMHLFHJ4DCXKP2VANCNFSM4ABSNVVQ
 # makefile
 .DEFAULT_GOAL := 
 # environment
@@ -227,7 +229,7 @@ VSCODE_EXTHOST_WILL_SEND_SOCKET = true
 # environment
 ContainerVersion = 12
 # variable set hash-table stats:
-# Load=107/1024=10%, Rehash=0, Collisions=10/129=8%
+# Load=108/1024=11%, Rehash=0, Collisions=10/130=8%
 
 # Pattern-specific Variable Values
 
@@ -276,9 +278,9 @@ makefile:
 GNUmakefile:
 #  Implicit rule search has been done.
 #  File does not exist.
+ 
 #  File has been updated.
 #  Failed to be updated.
- 
 
 # files hash-table stats:
 # Load=6/1024=1%, Rehash=0, Collisions=0/15=0%
@@ -294,6 +296,6 @@ GNUmakefile:
 # strcache performance: lookups = 25 / hit rate = 12%
 # hash-table stats:
 # Load=22/8192=0%, Rehash=0, Collisions=1/25=4%
-# Finished Make data base on Sat Jun 25 19:52:21 2022
+# Finished Make data base on Mon Jun 27 18:30:21 2022
 
  
