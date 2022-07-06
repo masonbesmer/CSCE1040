@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Jul  6 14:35:53 2022
+# Make data base, printed on Wed Jul  6 20:47:24 2022
 
 # Variables
 
@@ -53,13 +53,11 @@ GITHUB_GRAPHQL_URL = https://api.github.com/graphql
 # environment
 RUBY_HOME = /opt/ruby/lts
 # environment
-GITHUB_TOKEN = ghu_LWF0m1IPXRQoS0Un8ve8fnlzHWdvpF4NNhX3
+GITHUB_TOKEN = ghu_6aHgkJHBTZm1LnMihZgtqT43Yh0d593kskzk
 # makefile
 MAKEFILE_LIST := 
 # environment
 ENABLE_DYNAMIC_INSTALL = true
-# environment
-DEBUG = ,vs-ssh
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
@@ -105,7 +103,7 @@ VSCODE_LOG_STACK = false
 # environment
 NUGET_XMLDOC_MODE = skip
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-75ec3d63-c64c-4053-9ef4-502df1fd6e33.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-8571dcb5-82e5-4cbb-b55a-4e7cf75d6b57.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -149,7 +147,7 @@ HOME = /home/codespace
 # environment
 LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 NVM_CD_FLAGS = 
 # automatic
@@ -189,7 +187,7 @@ JAVA_HOME = /opt/java/lts
 # default
 MAKE_VERSION := 4.2.1
 # environment
-GITHUB_CODESPACE_TOKEN = AD7C3UHT7AZSTJY25KJ66RTCYZC6PANCNFSM4ABSNVVQ
+GITHUB_CODESPACE_TOKEN = AD7C3UCOJOEB24XCH5X33ILCY2OXZANCNFSM4ABSNVVQ
 # environment
 USER = codespace
 # environment
@@ -284,11 +282,11 @@ LANG = C
 VSCODE_EXTHOST_WILL_SEND_SOCKET = true
 # environment
 ContainerVersion = 12
- 
 # environment
 NVM_RC_VERSION = 
 # variable set hash-table stats:
-# Load=137/1024=13%, Rehash=0, Collisions=12/159=8%
+ 
+# Load=136/1024=13%, Rehash=0, Collisions=12/158=8%
 
 # Pattern-specific Variable Values
 
@@ -296,9 +294,9 @@ NVM_RC_VERSION =
 
 # Directories
 
-# . (device 1792, inode 1310870): 16 files, no impossibilities.
+# . (device 1792, inode 1310870): 17 files, no impossibilities.
 
-# 16 files, no impossibilities in 1 directories.
+# 17 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -348,12 +346,12 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 24 / storage = 241 B / avg = 10 B
-# current buf: size = 8162 B / used = 241 B / count = 24 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 25 / storage = 257 B / avg = 10 B
+# current buf: size = 8162 B / used = 257 B / count = 25 / avg = 10 B
 
-# strcache performance: lookups = 27 / hit rate = 11%
+# strcache performance: lookups = 28 / hit rate = 10%
 # hash-table stats:
-# Load=24/8192=0%, Rehash=0, Collisions=1/27=4%
-# Finished Make data base on Wed Jul  6 14:35:53 2022
+# Load=25/8192=0%, Rehash=0, Collisions=1/28=4%
+# Finished Make data base on Wed Jul  6 20:47:24 2022
 
  
