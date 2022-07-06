@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Jun 27 18:30:21 2022
+# Make data base, printed on Wed Jul  6 14:35:53 2022
 
 # Variables
 
@@ -27,6 +27,10 @@ NODE_ROOT = /home/codespace/.nodejs
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
+GRADLE_HOME = /usr/local/sdkman/candidates/gradle/current
+# environment
+rvm_path = /usr/local/rvm
+# environment
 JAVA_ROOT = /home/codespace/.java
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
@@ -41,11 +45,15 @@ PYTHON_ROOT = /home/codespace/.python
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-US","availableLanguages":{}}
 # environment
+PROMPT_DIRTRIM = 4
+# environment
+_ = /usr/bin/cat
+# environment
 GITHUB_GRAPHQL_URL = https://api.github.com/graphql
 # environment
 RUBY_HOME = /opt/ruby/lts
 # environment
-GITHUB_TOKEN = ghu_8kDLO8ZlvXPgUXnS1YGI3fJLBkCAro1SieYc
+GITHUB_TOKEN = ghu_LWF0m1IPXRQoS0Un8ve8fnlzHWdvpF4NNhX3
 # makefile
 MAKEFILE_LIST := 
 # environment
@@ -57,19 +65,27 @@ GNUMAKEFLAGS :=
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
+LESSOPEN = | /usr/bin/lesspipe %s
+# environment
 VSCODE_CWD = /vscode/bin/linux-x64/30d9c6cd9483b2cc586687151bcbcd635f373630
 # environment
 NUGET_PACKAGES = /var/nuget
 # environment
+NVS_ROOT = /home/codespace/.nvs
+# environment
 DOTNET_SKIP_FIRST_TIME_EXPERIENCE = 1
 # environment
-PATH = /vscode/bin/linux-x64/30d9c6cd9483b2cc586687151bcbcd635f373630/bin/remote-cli:/home/codespace/.nvm/current/bin:/home/codespace/.npm-global/bin:/home/codespace/.python/current/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/codespace/.dotnet:/home/codespace/.dotnet/tools:/usr/local/sdkman/bin:/usr/local/sdkman/candidates/gradle/current/bin:/usr/local/sdkman/candidates/java/current/bin:/opt/maven/lts:/usr/local/go/bin:/go/bin:/usr/local/py-utils/bin:/opt/conda/condabin:/home/codespace/.java/current/bin:/home/codespace/.nodejs/current/bin:/home/codespace/.php/current/bin:/home/codespace/.ruby/current/bin:/home/codespace/.maven/current/bin:/home/codespace/.hugo/current/bin:/home/codespace/.local/bin:/opt/oryx:/opt/nodejs/lts/bin:/opt/dotnet/lts:/opt/python/latest/bin:/opt/php/lts/bin:/opt/php-composer:/opt/yarn/stable/bin:/opt/hugo/lts::/opt/java/lts/bin:/opt/maven/lts/bin:/opt/ruby/lts/bin
+PATH = /vscode/bin/linux-x64/30d9c6cd9483b2cc586687151bcbcd635f373630/bin/remote-cli:/home/codespace/.local/bin:/home/codespace/.rbenv/shims:/home/codespace/.nvm/current/bin:/home/codespace/.npm-global/bin:/home/codespace/.python/current/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/codespace/.dotnet:/home/codespace/.dotnet/tools:/usr/local/sdkman/bin:/usr/local/sdkman/candidates/gradle/current/bin:/usr/local/sdkman/candidates/java/current/bin:/opt/maven/lts:/usr/local/go/bin:/go/bin:/usr/local/py-utils/bin:/opt/conda/condabin:/home/codespace/.java/current/bin:/home/codespace/.nodejs/current/bin:/home/codespace/.php/current/bin:/home/codespace/.ruby/current/bin:/home/codespace/.maven/current/bin:/home/codespace/.hugo/current/bin:/home/codespace/.local/bin:/opt/oryx:/opt/nodejs/lts/bin:/opt/dotnet/lts:/opt/python/latest/bin:/opt/php/lts/bin:/opt/php-composer:/opt/yarn/stable/bin:/opt/hugo/lts::/opt/java/lts/bin:/opt/maven/lts/bin:/opt/ruby/lts/bin:/usr/local/rvm/bin
+# environment
+NVS_OS = linux
 # environment
 DYNAMIC_INSTALL_ROOT_DIR = /opt
 # environment
 CLOUDENV_ENVIRONMENT_ID = 885327fa-4b48-473b-88cd-5e30a09ed259
 # environment
 ORYX_AI_INSTRUMENTATION_KEY = 4aadba6b-30c8-42db-9b93-024d5c62b887
+# environment
+rvm_stored_umask = 0022
 # environment
 GITHUB_SERVER_URL = https://github.com
 # environment
@@ -79,19 +95,25 @@ PIPX_HOME = /usr/local/py-utils
 # environment
 SDKMAN_DIR = /usr/local/sdkman
 # environment
+SDKMAN_CANDIDATES_API = https://api.sdkman.io/2
+# environment
 GOPATH = /go
+# environment
+SDKMAN_PLATFORM = linuxx64
 # environment
 VSCODE_LOG_STACK = false
 # environment
 NUGET_XMLDOC_MODE = skip
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-cda6fa1f-d730-41ff-8009-a38ca5d1e5b4.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-75ec3d63-c64c-4053-9ef4-502df1fd6e33.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
 CODESPACES = true
 # environment
 CODESPACE_NAME = masonbesmer-csce1040-4gv4gjg5374wj
+# environment
+LS_COLORS = 
 # automatic
 %F = $(notdir $%)
 # environment
@@ -103,7 +125,11 @@ JUPYTERLAB_PATH = /home/codespace/.local/bin
 # environment
 ORIGINAL_PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 # environment
+rvm_bin_path = /usr/local/rvm/bin
+# environment
 ORYX_SDK_STORAGE_BASE_URL = https://oryx-cdn.microsoft.io
+# environment
+VSCDC_FIXED_SECRETS = true
 # environment
 DOTNET_ROOT = /home/codespace/.dotnet
 # default
@@ -121,7 +147,11 @@ VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
 HOME = /home/codespace
 # environment
+LESSCLOSE = /usr/bin/lesspipe %s %s
+# environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+NVM_CD_FLAGS = 
 # automatic
 +F = $(notdir $+)
 # environment
@@ -137,13 +167,19 @@ HOSTNAME = codespaces-24e513
 # environment
 ORYX_ENV_TYPE = vsonline-present
 # environment
+GRADLE_USER_HOME = /home/codespace/.gradle
+# environment
 MAKELEVEL := 0
+# environment
+SDKMAN_VERSION = 5.15.0
 # default
 MAKE = $(MAKE_COMMAND)
 # environment
 HUGO_ROOT = /home/codespace/.hugo
 # default
 MAKECMDGOALS := all
+# environment
+SHLVL = 1
 # environment
 RUBY_ROOT = /home/codespace/.ruby
 # environment
@@ -153,15 +189,25 @@ JAVA_HOME = /opt/java/lts
 # default
 MAKE_VERSION := 4.2.1
 # environment
-GITHUB_CODESPACE_TOKEN = AD7C3UBQFMJHQNWMHLFHJ4DCXKP2VANCNFSM4ABSNVVQ
+GITHUB_CODESPACE_TOKEN = AD7C3UHT7AZSTJY25KJ66RTCYZC6PANCNFSM4ABSNVVQ
+# environment
+USER = codespace
+# environment
+NVS_USE_XZ = 1
 # makefile
 .DEFAULT_GOAL := 
 # environment
+SHELL_LOGGED_IN = true
+# environment
 GOROOT = /usr/local/go
+# environment
+rvm_version = 1.29.12 (latest)
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # default
 MAKE_COMMAND := make
+# environment
+OLDPWD = /vscode/bin/linux-x64/30d9c6cd9483b2cc586687151bcbcd635f373630
 # default
 .VARIABLES := 
 # automatic
@@ -179,6 +225,8 @@ NVM_DIR = /home/codespace/.nvm
 # makefile
 SHELL = /bin/sh
 # environment
+rvm_user_install_flag = 0
+# environment
 BROWSER = /vscode/bin/linux-x64/30d9c6cd9483b2cc586687151bcbcd635f373630/bin/helpers/browser.sh
 # environment
 PHP_ROOT = /home/codespace/.php
@@ -189,11 +237,17 @@ NVS_HOME = /home/codespace/.nvs
 # environment
 VSCODE_HANDLES_SIGPIPE = true
 # environment
+DEBIAN_FLAVOR = focal-scm
+# environment
 GITHUB_USER = masonbesmer
 # default
 MAKEFILES := 
+# environment
+RBENV_SHELL = bash
 # automatic
 <F = $(notdir $<)
+# environment
+SDKMAN_CANDIDATES_DIR = /usr/local/sdkman/candidates
 # environment
 GITHUB_API_URL = https://api.github.com
 # environment
@@ -208,6 +262,8 @@ INTERNAL_VSCS_TARGET_URL = https://eastus.online.visualstudio.com
 GITHUB_REPOSITORY = masonbesmer/CSCE1040
 # automatic
 ^F = $(notdir $^)
+# environment
+rvm_prefix = /usr/local
 # default
 SUFFIXES := 
 # environment
@@ -215,7 +271,7 @@ GIT_COMMITTER_EMAIL = noreply@github.com
 # default
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
 # environment
-DEBIAN_FLAVOR = focal-scm
+rvm_loaded_flag = 1
 # default
 .RECIPEPREFIX := 
 # default
@@ -228,8 +284,11 @@ LANG = C
 VSCODE_EXTHOST_WILL_SEND_SOCKET = true
 # environment
 ContainerVersion = 12
+ 
+# environment
+NVM_RC_VERSION = 
 # variable set hash-table stats:
-# Load=108/1024=11%, Rehash=0, Collisions=10/130=8%
+# Load=137/1024=13%, Rehash=0, Collisions=12/159=8%
 
 # Pattern-specific Variable Values
 
@@ -237,9 +296,9 @@ ContainerVersion = 12
 
 # Directories
 
-# . (device 1792, inode 1310870): 14 files, no impossibilities.
+# . (device 1792, inode 1310870): 16 files, no impossibilities.
 
-# 14 files, no impossibilities in 1 directories.
+# 16 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -278,7 +337,6 @@ makefile:
 GNUmakefile:
 #  Implicit rule search has been done.
 #  File does not exist.
- 
 #  File has been updated.
 #  Failed to be updated.
 
@@ -290,12 +348,12 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 22 / storage = 209 B / avg = 9 B
-# current buf: size = 8162 B / used = 209 B / count = 22 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 24 / storage = 241 B / avg = 10 B
+# current buf: size = 8162 B / used = 241 B / count = 24 / avg = 10 B
 
-# strcache performance: lookups = 25 / hit rate = 12%
+# strcache performance: lookups = 27 / hit rate = 11%
 # hash-table stats:
-# Load=22/8192=0%, Rehash=0, Collisions=1/25=4%
-# Finished Make data base on Mon Jun 27 18:30:21 2022
+# Load=24/8192=0%, Rehash=0, Collisions=1/27=4%
+# Finished Make data base on Wed Jul  6 14:35:53 2022
 
  
