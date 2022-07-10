@@ -2,6 +2,8 @@
 #define DRIVERS_H
 
 #include "driver.h"
+#include "rides.h"
+#include "passengers.h"
 
 #include <iostream>
 #include <string>
@@ -25,7 +27,7 @@ class Drivers
         void AddDriver(Driver*); //fully implemented
         void RemoveDriver(Driver*); //needs testing, might be deleted
         void RemoveDriver(); //good to go
-        void PrintDrivers();
+        void PrintDrivers();//gg
         void PrintDriver(); //good to go
         void EditDriver(); //testing needed
         void PrintActiveRides();

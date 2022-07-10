@@ -50,7 +50,7 @@ void Rides::AddRide()
 
 void Rides::AddRide(Ride *newRide)
 {
-    cout << "Ride ID for ride " << newRide->GetPartySize() << " people with ID#" << newRide->GetRideID() << " will be updated to " << RideList.size() + 1 << endl;
+    cout << "Ride ID for ride with " << newRide->GetPartySize() << " people with ID#" << newRide->GetRideID() << " will be updated to " << RideList.size() + 1 << endl;
     newRide->SetRideID(RideList.size() + 1);
     RideList[newRide->GetRideID()] = newRide;
     IncrementRideCount();
@@ -121,5 +121,16 @@ void Rides::PrintEveryRideEver()
     for (auto x : RideList)
     {
         x.second->PrintRide();
+    }
+}
+
+void Rides::PrintActiveRides()
+{
+    for (auto x : RideList)
+    {
+        if (x.second->GetRideStatus() == 'A')
+        {
+            x.second->PrintRide();
+        }
     }
 }

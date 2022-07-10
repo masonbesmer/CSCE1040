@@ -2,6 +2,8 @@
 #define RIDES_H
 
 #include "ride.h"
+#include "drivers.h"
+#include "passengers.h"
 
 #include <iostream>
 #include <string>
@@ -25,7 +27,6 @@ class Rides
         void AddRide(Ride*);//
         void RemoveRide(Ride*);//
         void RemoveRide();//
-        void PrintRides();
         void PrintRide();//
         void EditRide();//
         void PrintActiveRides();

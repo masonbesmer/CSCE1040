@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:customer.cpp">
+   </FileRef>
+   <FileRef
+      location = "group:customer.h">
+   </FileRef>
+   <FileRef
+      location = "group:customers.cpp">
+   </FileRef>
+   <FileRef
+      location = "group:customers.h">
+   </FileRef>
+   <FileRef
+      location = "group:item.cpp">
+   </FileRef>
+   <FileRef
+      location = "group:item.h">
+   </FileRef>
+   <FileRef
+      location = "group:items.cpp">
+   </FileRef>
+   <FileRef
+      location = "group:items.h">
+   </FileRef>
+   <FileRef
+      location = "group:main.cpp">
+   </FileRef>
+   <FileRef
+      location = "group:order.cpp">
+   </FileRef>
+   <FileRef
+      location = "group:order.h">
+   </FileRef>
+   <FileRef
+      location = "group:orders.cpp">
+   </FileRef>
+   <FileRef
+      location = "group:orders.h">
+   </FileRef>
+</Workspace>

@@ -125,3 +125,58 @@ void Drivers::PrintDriver() {
     cout << "Driver ID: "; cin >> DriverID;
     DriverList[DriverID]->PrintDriver();
 }
+
+void Drivers::SaveDrivers() {
+    ofstream outfile;
+    outfile.open("drivers.txt");
+    for (auto x : DriverList) {
+        outfile << x.second->GetDriverID() << "," << x.second->GetDriverName() << "," << x.second->GetDriverPhone() << "," << x.second->GetVehicleCapacity() << "," << x.second->GetVehicleType() << "," << x.second->GetCanHandicap() << "," << x.second->GetRating() << "," << x.second->GetIsAvailable() << "," << x.second->GetAllowPets() << "," << x.second->GetNotes() << endl;
+    }
+    outfile.close();
+}
+
+void Drivers::LoadDrivers() {
+    ifstream infile;
+    infile.open("drivers.txt");
+    string line;
+    while (getline(infile, line)) {
+        stringstream ss(line);
+        string temp;
+        int i = 0;
+        while (getline(ss, temp, ',')) {
+            if (i == 0) {
+                int DriverID = stoi(temp);
+                string DriverName;
+                int DriverPhone;
+                int VehicleCapacity;
+                bool CanHandicap;
+                double Rating;
+                bool IsAvailable;
+                bool AllowPets;
+                string Notes;
+                char VehicleType;
+                getline(ss, DriverName, ',');
+                getline(ss, temp, ',');
+                DriverPhone = stoi(temp);
+                getline(ss, temp, ',');
+                VehicleCapacity = stoi(temp);
+                getline(ss, temp, ',');
+                VehicleType = temp[0];
+                getline(ss, temp, ',');
+                CanHandicap = stoi(temp);
+                getline(ss, temp, ',');
+                Rating = stod(temp);
+                getline(ss, temp, ',');
+                IsAvailable = stoi(temp);
+                getline(ss, temp, ',');
+                AllowPets = stoi(temp);
+                getline(ss, Notes, ',');
+                Type tempType = (Type)VehicleType;
+                Driver *newDriver = new Driver(DriverID, DriverName, DriverPhone, VehicleCapacity, tempType, CanHandicap, Rating, IsAvailable, AllowPets, Notes);
+                DriverList[DriverID] = newDriver;
+                IncrementDriverCount();
+            }
+        }
+    }
+    infile.close();
+} //this maybe works?

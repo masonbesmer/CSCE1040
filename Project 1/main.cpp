@@ -58,7 +58,7 @@ int main()
     a3.SetDropoffLocation("456 Main St");
     a3.SetPickupTime(time(0));
     a3.SetDropoffTime(time(0));
-    a3.SetIncludesPets(true);
+    a3.SetIncludesPets(false);
     a3.SetRideStatus('L');
     a3.SetRating(5);
 
