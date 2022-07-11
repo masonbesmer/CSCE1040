@@ -6,6 +6,7 @@ Driver::Driver()
     DriverID = 0;
     DriverPhone = 1234567890;
     VehicleCapacity = 5;
+    VehicleType = static_cast<Type>('C');
     CanHandicap = true;
     Rating = 5;
     IsAvailable = true;

@@ -20,15 +20,16 @@ int main()
     //p1.PrintPassenger();
 
     Drivers f;
-    f.AddDriver(&d3);
-    f.AddDriver(&a);
-    f.AddDriver(&b);
-    f.AddDriver(&c);
-    f.AddDriver(&d);
-    f.AddDriver(&e);
-    f.AddDriver(&g);
-
+    // f.AddDriver(&d3);
+    // f.AddDriver(&a);
+    // f.AddDriver(&b);
+    // f.AddDriver(&c);
+    // f.AddDriver(&d);
+    // f.AddDriver(&e);
+    // f.AddDriver(&g);
+    f.LoadDrivers();
     f.PrintDrivers();
+    // f.SaveDrivers();
 
     Ride a1,a2,a3;
 
@@ -68,7 +69,7 @@ int main()
     r.AddRide(&a2);
     r.AddRide(&a3);
 
-    r.PrintEveryRideEver();
+    //r.PrintEveryRideEver();
 
     return 0;
 }
