@@ -11,7 +11,6 @@ int main() {
 
     cout << "Dynamicallly now..." << endl << endl;
 
-    //Account *MyAccounts = new Account[4];
     vector<Account*> MyAccounts;
 
     string names;
@@ -27,8 +26,8 @@ int main() {
 
     cout << endl << "Accounts:" << endl;
 
-    for (int i=0; i<4; i++) {
-        MyAccounts[i]->Print();
+    for (auto it = MyAccounts.begin(); it != MyAccounts.end(); it++) {
+        (*it)->Print();
     }
 
     for(auto it = MyAccounts.begin(); it != MyAccounts.end(); it++) {
