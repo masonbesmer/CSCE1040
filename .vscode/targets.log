@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Jul 11 15:33:08 2022
+# Make data base, printed on Tue Jul 12 00:33:33 2022
 
 # Variables
 
@@ -51,7 +51,7 @@ GITHUB_GRAPHQL_URL = https://api.github.com/graphql
 # environment
 RUBY_HOME = /opt/ruby/lts
 # environment
-GITHUB_TOKEN = ghu_50kSNaNcOh8FOwpwScc63RPp5fBDEK4Vr3g4
+GITHUB_TOKEN = ghu_26SYvU93Qk3seZYN1htMc4FOglzjfx22ccw4
 # makefile
 MAKEFILE_LIST := 
 # environment
@@ -99,7 +99,7 @@ NUGET_XMLDOC_MODE = skip
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-a7441353-6609-4cad-9a69-bc6250937149.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-8b1746a4-d92d-45f2-87b1-07e856cfa5fc.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -167,7 +167,6 @@ SDKMAN_VERSION = 5.15.0
 # default
 MAKE = $(MAKE_COMMAND)
 # environment
- 
 HUGO_ROOT = /home/codespace/.hugo
 # default
 MAKECMDGOALS := all
@@ -182,7 +181,7 @@ JAVA_HOME = /opt/java/lts
 # default
 MAKE_VERSION := 4.2.1
 # environment
-GITHUB_CODESPACE_TOKEN = AD7C3UHMGF6BBJXYUHXP5UTCZTVU3ANCNFSM4ABSNVVQ
+GITHUB_CODESPACE_TOKEN = AD7C3UHXM2XLVVHEZQQ3QVTCZVCW5ANCNFSM4ABSNVVQ
 # environment
 USER = codespace
 # environment
@@ -278,6 +277,7 @@ ContainerVersion = 12
 # environment
 NVM_RC_VERSION = 
 # variable set hash-table stats:
+ 
 # Load=132/1024=13%, Rehash=0, Collisions=12/154=8%
 
 # Pattern-specific Variable Values
@@ -286,9 +286,9 @@ NVM_RC_VERSION =
 
 # Directories
 
-# . (device 1792, inode 1310870): 18 files, no impossibilities.
+# . (device 1792, inode 1310870): 19 files, no impossibilities.
 
-# 18 files, no impossibilities in 1 directories.
+# 19 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -307,7 +307,6 @@ all:
 Makefile:
 #  Implicit rule search has been done.
 #  File does not exist.
- 
 #  File has been updated.
 #  Failed to be updated.
 
@@ -339,12 +338,12 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 26 / storage = 283 B / avg = 10 B
-# current buf: size = 8162 B / used = 283 B / count = 26 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 27 / storage = 299 B / avg = 11 B
+# current buf: size = 8162 B / used = 299 B / count = 27 / avg = 11 B
 
-# strcache performance: lookups = 29 / hit rate = 10%
+# strcache performance: lookups = 30 / hit rate = 10%
 # hash-table stats:
-# Load=26/8192=0%, Rehash=0, Collisions=1/29=3%
-# Finished Make data base on Mon Jul 11 15:33:08 2022
+# Load=27/8192=0%, Rehash=0, Collisions=1/30=3%
+# Finished Make data base on Tue Jul 12 00:33:34 2022
 
  

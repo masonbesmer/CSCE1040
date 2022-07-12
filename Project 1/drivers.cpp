@@ -145,6 +145,7 @@ void Drivers::LoadDrivers()
 {
     ifstream infile;
     infile.open("drivers.dat");
+    string DriverName;
     string intDriverPhone;
     string intVehicleCapacity;
     string boolCanHandicap;
@@ -153,51 +154,21 @@ void Drivers::LoadDrivers()
     string boolAllowPets;
     string intDriverID;
     string charVehicleType;
-    string stringDriverCount;
-
-    int DriverID;
-    string DriverName;
-    int DriverPhone;
-    int VehicleCapacity;
-    bool CanHandicap;
-    double Rating;
-    bool IsAvailable;
-    bool AllowPets;
     string Notes;
-    char VehicleType;
-    
-    getline(infile, stringDriverCount);
-    DriverCount = stoi(stringDriverCount);
 
-    for (int i = 0; i < DriverCount; i++)
+    while(!infile.eof())
     {
-        string line;
-        getline(infile, line);
-        istringstream stream(line);
-        getline(stream, intDriverID, '|');
-        getline(stream, DriverName, '|');
-        getline(stream, intDriverPhone, '|');
-        getline(stream, intVehicleCapacity, '|');
-        getline(stream, charVehicleType, '|');
-        getline(stream, boolCanHandicap, '|');
-        getline(stream, doubleRating, '|');
-        getline(stream, boolIsAvailable, '|');
-        getline(stream, boolAllowPets, '|');
-        getline(stream, Notes);
-        cout << intDriverID << " " << DriverName << " " << intDriverPhone << " " << intVehicleCapacity << " " << charVehicleType << " " << boolCanHandicap << " " << doubleRating << " " << boolIsAvailable << " " << boolAllowPets << " " << Notes << endl;
-
-        DriverID = stoi(intDriverID);
-        DriverPhone = stoi(intDriverPhone);
-        VehicleCapacity = stoi(intVehicleCapacity);
-        CanHandicap = stoi(boolCanHandicap);
-        Rating = stod(doubleRating);
-        IsAvailable = stoi(boolIsAvailable);
-        AllowPets = stoi(boolAllowPets);
-
-        VehicleType = charVehicleType[0];
-        Type tempType = (Type)VehicleType;
-
-        Driver *newDriver = new Driver(DriverID, DriverName, DriverPhone, VehicleCapacity, tempType, CanHandicap, Rating, IsAvailable, AllowPets, Notes);
-        DriverList[newDriver->GetDriverID()] = newDriver;
+        getline(infile, intDriverID, '|');
+        getline(infile, DriverName, '|');
+        getline(infile, intDriverPhone, '|');
+        getline(infile, intVehicleCapacity, '|');
+        getline(infile, charVehicleType, '|');
+        getline(infile, boolCanHandicap, '|');
+        getline(infile, doubleRating, '|');
+        getline(infile, boolIsAvailable, '|');
+        getline(infile, boolAllowPets, '|');
+        getline(infile, Notes);
+        Driver* newDriver = new Driver(stoi(intDriverID), DriverName, stoi(intDriverPhone), stoi(intVehicleCapacity), (Type)charVehicleType[0], stoi(boolCanHandicap), stod(doubleRating), stoi(boolIsAvailable), stoi(boolAllowPets), Notes);
+        DriverList[stoi(intDriverID)] = newDriver;
     }
-} //this maybe works?
+}

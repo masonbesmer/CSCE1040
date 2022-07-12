@@ -154,24 +154,24 @@ void Driver::PrintDriver()
     cout << "Vehicle Capacity: " << VehicleCapacity << endl;
     //vehicle type
     cout << "Vehicle Type: ";
-    switch (VehicleType)
-    {
-        case Compact:
-            cout << "Compact" << endl;
-            break;
-        case Sedan:
-            cout << "Sedan" << endl;
-            break;
-        case SUV:
-            cout << "SUV" << endl;
-            break;
-        case Van:
-            cout << "Van" << endl;
-            break;
-        default:
-            cout << "Other" << endl;
-            break;
-    }
+    // switch (VehicleType)
+    // {
+    //     case Compact:
+    //         cout << TypeStrings[Compact] << endl;
+    //         break;
+    //     case Sedan:
+    //         cout << TypeStrings[Sedan] << endl;
+    //         break;
+    //     case SUV:
+    //         cout << TypeStrings[SUV] << endl;
+    //         break;
+    //     case Van:
+    //         cout << TypeStrings[Van] << endl;
+    //         break;
+    //     default:
+    //         cout << "Other" << endl;
+    //         break;
+    // }
     cout << "Can Handicap: " << CanHandicap << endl;
     cout << "Rating: " << Rating << endl;
     cout << "Is Available: " << IsAvailable << endl;

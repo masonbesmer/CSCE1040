@@ -19,20 +19,19 @@ class Passengers
     private:
         typedef map <int,Passenger*> PassengerType;
         PassengerType PassengerList;
+        int PassengerCount;
     public:
-        Passengers();
-        void SavePassengers();
-        void LoadPassengers();
         void AddPassenger();
         void AddPassenger(Passenger*);
-        void RemovePassenger(Passenger*);
-        void RemovePassenger(int);
-        void PrintPassengers();
         void EditPassenger();
-        void PrintActieveRides();
-        void PrintPassengerRides();
-        void PrintDriverRides();
-        void PrintActiveRides();
+        void RemovePassenger(int);
+        void IncrementPassengerCount();
+        void DecrementPassengerCount();
+        Passenger* SearchPassengerByID(int);
+        void PrintPassengers();
+        void PrintPassenger();
+        void SavePassengers();
+        void LoadPassengers();
 };
 
 #endif

@@ -1,6 +1,6 @@
-OBJS	= driver.o drivers.o main.o passenger.o ride.o rides.o
-SOURCE	= driver.cpp drivers.cpp main.cpp passenger.cpp ride.cpp rides.cpp
-HEADER	= driver.h drivers.h passenger.h ride.h rides.h
+OBJS	= driver.o drivers.o main.o passenger.o ride.o rides.o passengers.o
+SOURCE	= driver.cpp drivers.cpp main.cpp passenger.cpp ride.cpp rides.cpp passengers.cpp
+HEADER	= driver.h drivers.h passenger.h ride.h rides.h passengers.h
 #DAT    = drivers.dat passengers.dat rides.dat
 OUT	= a.out
 CC	 = g++

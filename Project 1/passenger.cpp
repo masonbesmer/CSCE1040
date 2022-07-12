@@ -5,8 +5,8 @@ Passenger::Passenger()
     name = "default";
     id = -1;
     paymentMethod = static_cast<Payment>('C');
-    handicap = NULL;
-    pets = NULL;
+    handicap = false;
+    pets = false;
     ratingMin = -1;
 }
 
@@ -32,7 +32,7 @@ void Passenger::SetId(int id)
 
 void Passenger::SetPaymentMethod(char p)
 {
-    switch (paymentMethod)
+    switch (p)
     {
     case 'C':
         this->paymentMethod = Cash;
@@ -92,13 +92,13 @@ void Passenger::PrintPassenger() {
     cout << "Payment Method: ";
     switch (paymentMethod)
     {
-        case Cash:
+        case 'C':
             cout << "Cash" << endl;
             break;
-        case Credit:
+        case 'R':
             cout << "Credit" << endl;
             break;
-        case Debit:
+        case 'D':
             cout << "Debit" << endl;
             break;
     } 
