@@ -7,30 +7,21 @@
 
 int main()
 {
-    // Driver d3;
-    // Driver a,b,c,d,e,g;
-
-    // Passenger p1;
-    // p1.SetName("Johnny Manziel");
-    // p1.SetId(1);
-    // p1.SetPaymentMethod('C');
-    // p1.SetHandicap(true);
-    // p1.SetPets(false);
-    // p1.SetRatingMin(5);
+    // // Driver d3;
+    Driver a,b,c,d,e,g;
 
     // //p1.PrintPassenger();
 
-    // Drivers f;
-    // // f.AddDriver(&d3);
-    // // f.AddDriver(&a);
-    // // f.AddDriver(&b);
-    // // f.AddDriver(&c);
-    // // f.AddDriver(&d);
-    // // f.AddDriver(&e);
-    // // f.AddDriver(&g);
-    // f.LoadDrivers();
-    // f.PrintDrivers();
-    // // f.SaveDrivers();
+    Drivers f;
+
+    // f.AddDriver(&a);
+    // f.AddDriver(&b);
+    // f.AddDriver(&c);
+    // f.AddDriver(&d);
+    // f.AddDriver(&e);
+    // f.AddDriver(&g);
+    f.LoadDrivers();
+    f.PrintDrivers();
 
     // // Ride a1,a2,a3;
 
@@ -72,9 +63,9 @@ int main()
 
     // //r.PrintEveryRideEver();
 
-    //Passenger a,b,c,d,e,f,g;
+    // Passenger a,b,c,d,e,f,g;
 
-    Passengers p;
+    // Passengers p;
 
     // p.AddPassenger(&a);
     // p.AddPassenger(&b);
@@ -84,11 +75,9 @@ int main()
     // p.AddPassenger(&f);
     // p.AddPassenger(&g);
 
-    p.LoadPassengers();
-    p.EditPassenger();
-    p.PrintPassengers();
-
-    //p.SavePassengers();
+    // p.LoadPassengers();
+    // //p.EditPassenger();
+    // p.PrintPassengers();
 
     return 0;
 }

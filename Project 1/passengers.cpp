@@ -20,7 +20,7 @@ void Passengers::AddPassenger()
     PassengerList[id] = passenger;
     IncrementPassengerCount();
 
-    this->SavePassengers();
+    SavePassengers();
 
     cout << "Passenger added successfully!" << endl;
 }
@@ -30,6 +30,7 @@ void Passengers::AddPassenger(Passenger* newPassenger)
     cout << "Passenger ID for passenger " << newPassenger->GetName() << " with ID#" << newPassenger->GetId() << " will be updated to " << PassengerList.size() + 1 << endl;
     newPassenger->SetId(PassengerList.size() + 1);
     PassengerList[newPassenger->GetId()] = newPassenger;
+    SavePassengers();
     IncrementPassengerCount();
 }
 
@@ -61,7 +62,7 @@ void Passengers::EditPassenger()
     toEdit->SetPets(pets);
     toEdit->SetRatingMin(ratingMin);
 
-    this->SavePassengers();
+    SavePassengers();
     
     cout << "Passenger edited successfully!" << endl;
 }
@@ -69,7 +70,7 @@ void Passengers::EditPassenger()
 void Passengers::RemovePassenger(int id)
 {
     PassengerList.erase(id);
-    this->SavePassengers();
+    SavePassengers();
     cout << "Passenger removed successfully!" << endl;
 }
 
@@ -111,7 +112,7 @@ void Passengers::SavePassengers()
     outfile.open("passengers.dat");
     for(auto it = PassengerList.begin(); it != PassengerList.end(); ++it)
     {
-        outfile << it->second->GetName() << "|" << it->second->GetId() << "|" << it->second->GetPaymentMethod() << "|" << it->second->GetHandicap() << "|" << it->second->GetPets() << "|" << it->second->GetRatingMin() << endl;
+        outfile << it->second->GetName() << "|" << it->second->GetId() << "|" << char(it->second->GetPaymentMethod()) << "|" << it->second->GetHandicap() << "|" << it->second->GetPets() << "|" << it->second->GetRatingMin() << endl;
     }
     outfile.close();
 }
@@ -135,7 +136,7 @@ void Passengers::LoadPassengers()
         getline(infile, handicap, '|');
         getline(infile, pets, '|');
         getline(infile, ratingMin);
-        Passenger* passenger = new Passenger(name, stoi(id), static_cast<Payment>(payment[0]), stoi(handicap), stoi(pets), stod(ratingMin));
+        Passenger* passenger = new Passenger(name, stoi(id), static_cast<Payment>(char(payment[0])), stoi(handicap), stoi(pets), stod(ratingMin));
         PassengerList[stoi(id)] = passenger;
     }
 }

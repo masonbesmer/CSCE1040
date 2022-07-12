@@ -4,7 +4,7 @@ Passenger::Passenger()
 {
     name = "default";
     id = -1;
-    paymentMethod = static_cast<Payment>('C');
+    paymentMethod = Cash;
     handicap = false;
     pets = false;
     ratingMin = -1;
@@ -100,6 +100,9 @@ void Passenger::PrintPassenger() {
             break;
         case 'D':
             cout << "Debit" << endl;
+            break;
+        default:
+            cout << "Other" << endl;
             break;
     } 
     cout << "Handicap: " << handicap << endl;

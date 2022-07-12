@@ -56,6 +56,7 @@ void Drivers::AddDriver(Driver *newDriver)
     newDriver->SetDriverID(DriverList.size() + 1);
     DriverList[newDriver->GetDriverID()] = newDriver;
     IncrementDriverCount();
+    SaveDrivers();
 }
 
 void Drivers::RemoveDriver()
@@ -134,9 +135,10 @@ void Drivers::SaveDrivers()
 {
     ofstream outfile;
     outfile.open("drivers.dat");
-    outfile<<DriverCount<<endl;
-    for (auto x : DriverList) {
-        outfile << x.second->GetDriverID() << "|" << x.second->GetDriverName() << "|" << x.second->GetDriverPhone() << "|" << x.second->GetVehicleCapacity() << "|" << x.second->GetVehicleType() << "|" << x.second->GetCanHandicap() << "|" << x.second->GetRating() << "|" << x.second->GetIsAvailable() << "|" << x.second->GetAllowPets() << "|" << x.second->GetNotes() << endl;
+    for(auto it = DriverList.begin(); it != DriverList.end(); ++it) {
+        outfile << it->second->GetDriverID() << "|" << it->second->GetDriverName() << "|" << it->second->GetDriverPhone() << "|" << it->second->GetVehicleCapacity() << "|"
+        << it->second->GetVehicleType() << "|" << it->second->GetCanHandicap() << "|" << it->second->GetRating() << "|" << it->second->GetIsAvailable() << "|"
+        << it->second->GetAllowPets() << "|" << it->second->GetNotes() << endl;
     }
     outfile.close();
 }
@@ -155,7 +157,7 @@ void Drivers::LoadDrivers()
     string intDriverID;
     string charVehicleType;
     string Notes;
-
+    
     while(!infile.eof())
     {
         getline(infile, intDriverID, '|');
@@ -168,7 +170,13 @@ void Drivers::LoadDrivers()
         getline(infile, boolIsAvailable, '|');
         getline(infile, boolAllowPets, '|');
         getline(infile, Notes);
-        Driver* newDriver = new Driver(stoi(intDriverID), DriverName, stoi(intDriverPhone), stoi(intVehicleCapacity), (Type)charVehicleType[0], stoi(boolCanHandicap), stod(doubleRating), stoi(boolIsAvailable), stoi(boolAllowPets), Notes);
-        DriverList[stoi(intDriverID)] = newDriver;
+
+        cout << intDriverID << "|" << DriverName << "|" << intDriverPhone << "|" << intVehicleCapacity << "|" << charVehicleType << "|" << boolCanHandicap << "|"
+        << doubleRating << "|" << boolIsAvailable << "|" << boolAllowPets << "|" << Notes << endl;
+        cout << stoi(intDriverID) <<endl;
+        //Driver* newDriver = new Driver(stoi(intDriverID), DriverName, stoi(intDriverPhone), stoi(intVehicleCapacity), (Type)charVehicleType[0],
+        //stoi(boolCanHandicap), stod(doubleRating), stoi(boolIsAvailable), stoi(boolAllowPets), Notes);
+
+        //DriverList[stoi(intDriverID)] = newDriver;
     }
 }
