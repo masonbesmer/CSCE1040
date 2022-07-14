@@ -6,7 +6,7 @@ Driver::Driver()
     DriverID = 0;
     DriverPhone = 1234567890;
     VehicleCapacity = 5;
-    VehicleType = static_cast<Type>('C');
+    VehicleType = Compact;
     CanHandicap = true;
     Rating = 5;
     IsAvailable = true;
@@ -14,7 +14,7 @@ Driver::Driver()
     Notes = "fsef";
 }
 
-Driver::Driver(int did, string dname, int phone, int cap, Type typ, bool hcp, double rtng, bool ava, bool pets, string notes)
+Driver::Driver(int did, string dname, long phone, int cap, Type typ, bool hcp, double rtng, bool ava, bool pets, string notes)
 {
     DriverID = did;
     DriverName = dname;
@@ -38,7 +38,7 @@ void Driver::SetDriverName(string name)
     DriverName = name;
 }
 
-void Driver::SetDriverPhone(int phone)
+void Driver::SetDriverPhone(long phone)
 {
     DriverPhone = phone;
 }
@@ -83,7 +83,7 @@ string Driver::GetDriverName()
     return DriverName;
 }
 
-int Driver::GetDriverPhone()
+long Driver::GetDriverPhone()
 {
     return DriverPhone;
 }
@@ -123,9 +123,9 @@ string Driver::GetNotes()
     return Notes;
 }
 
-void Driver::SetVehicleType(char VehicleType)
+void Driver::SetVehicleType(char VehicleTypes)
 {
-    switch (VehicleType)
+    switch (VehicleTypes)
     {
         case 'C':
             this->VehicleType = Compact;
@@ -147,35 +147,34 @@ void Driver::SetVehicleType(char VehicleType)
 
 void Driver::PrintDriver()
 {
-    cout << "==============================================================" << endl;
+    cout << "=====================Driver Info========================" << endl;
     cout << "Driver Name: " << DriverName << endl;
-    cout << "Driver ID: " << DriverID << endl;
+    cout << "Driver ID: " << fixed << setw(6) << setfill('0') << DriverID << endl;
     cout << "Driver Phone: " << DriverPhone << endl;
     cout << "Vehicle Capacity: " << VehicleCapacity << endl;
-    //vehicle type
     cout << "Vehicle Type: ";
-    // switch (VehicleType)
-    // {
-    //     case Compact:
-    //         cout << TypeStrings[Compact] << endl;
-    //         break;
-    //     case Sedan:
-    //         cout << TypeStrings[Sedan] << endl;
-    //         break;
-    //     case SUV:
-    //         cout << TypeStrings[SUV] << endl;
-    //         break;
-    //     case Van:
-    //         cout << TypeStrings[Van] << endl;
-    //         break;
-    //     default:
-    //         cout << "Other" << endl;
-    //         break;
-    // }
+    switch (VehicleType)
+    {
+        case 'C':
+            cout << "Compact" << endl;
+            break;
+        case 'S':
+            cout << "Sedan" << endl;
+            break;
+        case 'U':
+            cout << "Suv" << endl;
+            break;
+        case 'V':
+            cout << "Van" << endl;
+            break;
+        default:
+            cout << "Other" << endl;
+            break;
+    }
     cout << "Can Handicap: " << CanHandicap << endl;
-    cout << "Rating: " << Rating << endl;
+    cout << "Rating: " << setprecision(1) << Rating << endl;
     cout << "Is Available: " << IsAvailable << endl;
     cout << "Allow Pets: " << AllowPets << endl;
     cout << "Notes: " << Notes << endl;
-    cout << "==============================================================" << endl;
+    cout << "========================================================" << endl;
 }

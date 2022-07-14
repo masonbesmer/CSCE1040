@@ -9,11 +9,11 @@ Ride::Ride()
     PickupTime = 0;
     DropoffTime = 0;
     IncludesPets = false;
-    RideStatus = static_cast<Status>('L');;
+    RideStatus = static_cast<Status>('L');
     Rating = 0;
 }
 
-Ride::Ride(int RideID, int PartySize, string PickupLocation, string DropoffLocation, time_t PickupTime, time_t DropoffTime, bool IncludesPets, char RideStatus, double Rating)
+Ride::Ride(int RideID, int PartySize, string PickupLocation, string DropoffLocation, time_t PickupTime, time_t DropoffTime, bool IncludesPets, char RideStatus, double Rating, int DriverID, int PassengerID)
 {
     this->RideID = RideID;
     this->PartySize = PartySize;
@@ -24,6 +24,8 @@ Ride::Ride(int RideID, int PartySize, string PickupLocation, string DropoffLocat
     this->IncludesPets = IncludesPets;
     this->RideStatus = static_cast<Status>(RideStatus);
     this->Rating = Rating;
+    this->DriverID = DriverID;
+    this->PassengerID = PassengerID;
 }
 
 void Ride::SetRideID(int RideID)
@@ -82,6 +84,16 @@ void Ride::SetRating(double Rating)
     this->Rating = Rating;
 }
 
+void Ride::SetDriverID(int DriverID)
+{
+    this->DriverID = DriverID;
+}
+
+void Ride::SetPassengerID(int PassengerID)
+{
+    this->PassengerID = PassengerID;
+}
+
 int Ride::GetRideID()
 {
     return RideID;
@@ -127,17 +139,29 @@ double Ride::GetRating()
     return Rating;
 }
 
+int Ride::GetDriverID()
+{
+    return DriverID;
+}
+
+int Ride::GetPassengerID()
+{
+    return PassengerID;
+}
+
 void Ride::PrintRide()
 {
-    cout << "==============================================================" << endl;
-    cout << "Ride ID: " << RideID << endl;
+    cout << "==========================Ride Info===========================" << endl;
+    cout << "Ride ID: " << fixed << setw(8) << setfill('0') << RideID << endl;
+    cout << "Passenger ID: " << fixed << setw(6) << setfill('0') << PassengerID << endl;
+    cout << "Driver ID: " << fixed << setw(6) << setfill('0') << DriverID << endl;
     cout << "Party Size: " << PartySize << endl;
     cout << "Pickup Location: " << PickupLocation << endl;
     cout << "Dropoff Location: " << DropoffLocation << endl;
-    cout << "Pickup Time: " << PickupTime << endl;
-    cout << "Dropoff Time: " << DropoffTime << endl;
+    cout << "Pickup Time: " << ctime(&PickupTime);
+    cout << "Dropoff Time: " << ctime(&DropoffTime);
     cout << "Includes Pets: " << IncludesPets << endl;
-    cout << "Ride Status: " << RideStatus << endl;
-    cout << "Rating: " << Rating << endl;
+    cout << "Ride Status: " << char(RideStatus) << endl;
+    cout << "Rating required: " << setprecision(1) << Rating << endl;
     cout << "==============================================================" << endl;
 }

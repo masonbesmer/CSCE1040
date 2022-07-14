@@ -7,23 +7,23 @@
 
 int main()
 {
-    // // Driver d3;
-    Driver a,b,c,d,e,g;
+    // // // Driver d3;
+    // //Driver a,b,c,d,e,g;
 
-    // //p1.PrintPassenger();
+    // // //p1.PrintPassenger();
 
-    Drivers f;
+    // Drivers f;
 
-    // f.AddDriver(&a);
-    // f.AddDriver(&b);
-    // f.AddDriver(&c);
-    // f.AddDriver(&d);
-    // f.AddDriver(&e);
-    // f.AddDriver(&g);
-    f.LoadDrivers();
-    f.PrintDrivers();
+    // // f.AddDriver(&a);
+    // // f.AddDriver(&b);
+    // // f.AddDriver(&c);
+    // // f.AddDriver(&d);
+    // // f.AddDriver(&e);
+    // // f.AddDriver(&g);
+    // f.LoadDrivers();
+    // //f.PrintDrivers();
 
-    // // Ride a1,a2,a3;
+    // //Ride a1,a2,a3;
 
     // // a1.SetRideID(1);
     // // a1.SetPartySize(2);
@@ -34,6 +34,8 @@ int main()
     // // a1.SetIncludesPets(true);
     // // a1.SetRideStatus('L');
     // // a1.SetRating(5);
+    // // a1.SetDriverID(1);
+    // // a1.SetPassengerID(1);
 
     // // a2.SetRideID(2);
     // // a2.SetPartySize(3);
@@ -44,6 +46,8 @@ int main()
     // // a2.SetIncludesPets(true);
     // // a2.SetRideStatus('L');
     // // a2.SetRating(5);
+    // // a2.SetDriverID(1);
+    // // a2.SetPassengerID(1);
 
     // // a3.SetRideID(3);
     // // a3.SetPartySize(4);
@@ -54,30 +58,145 @@ int main()
     // // a3.SetIncludesPets(false);
     // // a3.SetRideStatus('L');
     // // a3.SetRating(5);
+    // // a3.SetDriverID(1);
+    // // a3.SetPassengerID(1);
 
     // Rides r;
     
-    // r.AddRide(&a1);
-    // r.AddRide(&a2);
-    // r.AddRide(&a3);
+    // // r.AddRide(&a1);
+    // // r.AddRide(&a2);
+    // // r.AddRide(&a3);
+    // r.LoadRides();
+    // r.LoadDrivers();
+    // r.LoadPassengers();
+    // r.PrintEveryRideEver();
+    // r.AddRide();
+    // //cout << r.CheckIfDriverCanDoPets(2, true);
+    // f.EditDriver();
+    // r.PrintDriverRides(1);
 
-    // //r.PrintEveryRideEver();
+    // //Passenger q,x,v,j,k,l,m;
 
-    // Passenger a,b,c,d,e,f,g;
+    // //Passengers z;
 
-    // Passengers p;
+    // // z.AddPassenger(&q);
+    // // z.AddPassenger(&x);
+    // // z.AddPassenger(&v);
+    // // z.AddPassenger(&j);
+    // // z.AddPassenger(&k);
+    // // z.AddPassenger(&l);
+    // // z.AddPassenger(&m);
 
-    // p.AddPassenger(&a);
-    // p.AddPassenger(&b);
-    // p.AddPassenger(&c);
-    // p.AddPassenger(&d);
-    // p.AddPassenger(&e);
-    // p.AddPassenger(&f);
-    // p.AddPassenger(&g);
-
-    // p.LoadPassengers();
+    // //z.LoadPassengers();
     // //p.EditPassenger();
-    // p.PrintPassengers();
+    // //z.PrintPassengers();
+
+    // //f.EditDriver();
+
+    Passengers passengers;
+    Rides rides;
+    Drivers drivers;
+
+    passengers.LoadPassengers();
+    rides.LoadRides();
+    drivers.LoadDrivers();
+
+    int choice = -1;
+
+    while(choice !=0)
+    {
+        cout << "1. Add Passenger" << endl;
+        cout << "2. Add Driver" << endl;
+        cout << "3. Add Ride" << endl;
+        cout << "4. Edit Driver" << endl;
+        cout << "5. Edit Passenger" << endl;
+        cout << "6. Edit Ride" << endl;
+        cout << "7. Print Drivers" << endl;
+        cout << "8. Print Passengers" << endl;
+        cout << "9. Print Rides" << endl;
+        cout << "10. Remove Ride" << endl;
+        cout << "11. Remove Driver" << endl;
+        cout << "12. Remove Passenger" << endl;
+        cout << "13. Print Driver Rides" << endl;
+        cout << "14. Print Passenger Rides" << endl;
+        cout << "15. Print rides by Status" << endl;
+        cout << "16. Print Schedule for Driver" << endl;
+        cout << "17. Print Schedule for Passenger" << endl;
+        cout << "0. Exit" << endl;
+        cout << "Enter your choice: ";
+        cin >> choice;
+        cout << endl;
+        switch(choice)
+        {
+            case 1:
+                passengers.AddPassenger();
+                break;
+            case 2:
+                drivers.AddDriver();
+                break;
+            case 3:
+                rides.AddRide();
+                break;
+            case 4:
+                drivers.EditDriver();
+                break;
+            case 5:
+                passengers.EditPassenger();
+                break;
+            case 6:
+                rides.EditRide();
+                break;
+            case 7:
+                drivers.PrintDrivers();
+                break;
+            case 8:
+                passengers.PrintPassengers();
+                break;
+            case 9:
+                rides.PrintEveryRideEver();
+                break;
+            case 10:
+                rides.RemoveRide();
+                break;
+            case 11:
+                drivers.RemoveDriver();
+                break;
+            case 12:
+                passengers.RemovePassenger();
+                break;
+            case 13:
+                //get Driver ID from cin
+                int driverID;
+                cout << "Enter Driver ID: "; cin >> driverID;
+                rides.PrintDriverRides(driverID);
+                break;
+            case 14:
+                //get Passenger ID from cin
+                int passengerID;
+                cout << "Enter Passenger ID: "; cin >> passengerID;
+                rides.PrintPassengerRides(passengerID);
+                break;
+            case 15:
+                //get ride status from cin
+                char rideStatus;
+                cout << "Enter Ride Status(A=Active, L=Canceled, C=Completed): "; cin >> rideStatus;
+                rides.PrintRidesByStatus(rideStatus);
+                break;
+            case 16:
+                cout << "Please use 13 or 14 for this function" << endl;
+                break;
+            case 17:
+                cout << "Please use 13 or 14 for this function" << endl;
+                break;
+            case 0:
+                cout << "Exiting..." << endl;
+                break;
+            default:
+                cout << "Invalid choice" << endl;
+                break;
+        }
+        cout << endl;
+    }
 
     return 0;
 }

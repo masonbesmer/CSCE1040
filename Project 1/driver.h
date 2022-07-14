@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <ctime>
+#include <iomanip>
 
 using namespace std;
 
@@ -13,7 +14,7 @@ class Driver
     private:
         int DriverID;
         string DriverName;
-        int DriverPhone;
+        long DriverPhone;
         int VehicleCapacity;
         bool CanHandicap;
         double Rating;
@@ -23,10 +24,10 @@ class Driver
         Type VehicleType;
     public:
         Driver();
-        Driver(int, string, int, int, Type, bool, double, bool, bool, string);
+        Driver(int, string, long, int, Type, bool, double, bool, bool, string);
         void SetDriverID(int);
         void SetDriverName(string);
-        void SetDriverPhone(int);
+        void SetDriverPhone(long);
         void SetVehicleCapacity(int);
         void SetCanHandicap(bool);
         void SetRating(double);
@@ -38,7 +39,7 @@ class Driver
 
         int GetDriverID();
         string GetDriverName();
-        int GetDriverPhone();
+        long GetDriverPhone();
         int GetVehicleCapacity();
         bool GetCanHandicap();
         double GetRating();

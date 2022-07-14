@@ -2,8 +2,6 @@
 #define DRIVERS_H
 
 #include "driver.h"
-#include "rides.h"
-#include "passengers.h"
 
 #include <iostream>
 #include <string>
@@ -20,6 +18,7 @@ class Drivers
         typedef map <int,Driver*> DriverType;
         DriverType DriverList;
     public:
+        friend class Rides;
         Drivers() {DriverCount = 0;}
         void SaveDrivers();
         void LoadDrivers();
@@ -35,7 +34,7 @@ class Drivers
         int GetDriverCount(); //implemented
         void IncrementDriverCount(); //done
         void DecrementDriverCount(); //finished
-        Driver FindDriver(int); //found by ID
+        Driver* SearchDriverByID(int); //found by ID
         void PrintPassengerRides();
 };
 

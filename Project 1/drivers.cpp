@@ -1,5 +1,4 @@
 #include "drivers.h"
-#include <typeinfo>
 
 int Drivers::GetDriverCount() {
     return DriverCount;
@@ -13,14 +12,14 @@ void Drivers::DecrementDriverCount() {
     DriverCount--;
 }
 
-Driver Drivers::FindDriver(int id) {
-    return *DriverList[id];
+Driver* Drivers::SearchDriverByID(int id) {
+    return DriverList[id];
 }
 
 void Drivers::AddDriver() {
 
     string DriverName;
-    int DriverPhone;
+    long DriverPhone;
     int VehicleCapacity;
     bool CanHandicap;
     double Rating;
@@ -30,12 +29,17 @@ void Drivers::AddDriver() {
     int DriverID;
     char VehicleType;
 
-    DriverID = DriverList.size() + 1;
+    if(DriverList.empty()){
+        DriverID=1;
+    }
+    else{
+        DriverID = DriverList.rbegin()->first + 1;
+    }
 
     cout << "Driver ID will be " << DriverID << endl;
+    cin.ignore();
     cout << "Driver Name: "; getline(cin, DriverName);
     cout << "Notes: "; getline(cin, Notes);
-    cin.ignore();
     cout << "Driver Phone: "; cin >> DriverPhone;
     cout << "Vehicle Capacity: "; cin >> VehicleCapacity;
     cout << "Can Handicap: "; cin >> CanHandicap;
@@ -47,14 +51,23 @@ void Drivers::AddDriver() {
     Type tempType = (Type)VehicleType;
     Driver *newDriver = new Driver(DriverID, DriverName, DriverPhone, VehicleCapacity, tempType, CanHandicap, Rating, IsAvailable, AllowPets, Notes);
     DriverList[DriverID] = newDriver;
+    SaveDrivers();
     IncrementDriverCount();
+    cout << "Driver Added" << endl;
 }
 
 void Drivers::AddDriver(Driver *newDriver)
 {
-    cout << "Driver ID for driver "<< newDriver->GetDriverName() << " with ID#" << newDriver->GetDriverID() << " will be updated to " << DriverList.size() + 1 << endl;
-    newDriver->SetDriverID(DriverList.size() + 1);
-    DriverList[newDriver->GetDriverID()] = newDriver;
+    int DriverID;
+    if(DriverList.empty()){
+        DriverID=1;
+    }
+    else{
+        DriverID = DriverList.rbegin()->first + 1;
+    }
+    cout << "Driver ID for driver "<< newDriver->GetDriverName() << " with ID#" << newDriver->GetDriverID() << " will be updated to " << DriverID << endl;
+    newDriver->SetDriverID(DriverID);
+    DriverList[DriverID] = newDriver;
     IncrementDriverCount();
     SaveDrivers();
 }
@@ -71,33 +84,32 @@ void Drivers::RemoveDriver()
 void Drivers::EditDriver()
 {
     int DriverID;
-    cout << "Driver ID: "; cin >> DriverID;
+    cout << "Enter the ID of the driver you want to edit: "; cin >> DriverID;
     
-    Driver *tempDriver = DriverList[DriverID];
+    Driver *tempDriver = SearchDriverByID(DriverID);
+    tempDriver->PrintDriver();
+    string DriverName=tempDriver->GetDriverName();
+    long DriverPhone=tempDriver->GetDriverPhone();
+    int VehicleCapacity=tempDriver->GetVehicleCapacity();
+    bool CanHandicap=tempDriver->GetCanHandicap();
+    double Rating=tempDriver->GetRating();
+    bool IsAvailable=tempDriver->GetIsAvailable();
+    bool AllowPets=tempDriver->GetAllowPets();
+    string Notes=tempDriver->GetNotes();
+    char VehicleType=char(tempDriver->GetVehicleType());
     
-    string DriverName;
-    int DriverPhone;
-    int VehicleCapacity;
-    bool CanHandicap;
-    double Rating;
-    bool IsAvailable;
-    bool AllowPets;
-    string Notes;
-    char VehicleType;
-    
-    cout << "For the following options, press enter for no change." << endl;
-    cout << "Driver Name: "; getline(cin, DriverName);
-    cout << "Notes: "; getline(cin, Notes);
+    cout << "Enter new info for Driver (you MUST provide input)." << endl;
     cin.ignore();
-    cout << "Driver Phone: "; cin >> DriverPhone;
+    cout << "Driver Name: "; getline(cin, DriverName);
+    cout << "Driver Phone(1234567890 form): "; cin >> DriverPhone;
     cout << "Vehicle Capacity: "; cin >> VehicleCapacity;
-    cout << "Can Handicap: "; cin >> CanHandicap;
+    cout << "Can Handicap (0/1): "; cin >> CanHandicap;
     cout << "Rating: "; cin >> Rating;
-    cout << "Is Available: "; cin >> IsAvailable;
-    cout << "Allow Pets: "; cin >> AllowPets;
+    cout << "Is Available (0/1): "; cin >> IsAvailable;
+    cout << "Allow Pets (0/1): "; cin >> AllowPets;
     cout << "Vehicle Type /// C = Compact, S = Sedan, U = SUV, V = Van, O = Other): "; cin >> VehicleType;
-    
-    Type tempType = (Type)VehicleType;
+    cin.ignore();
+    cout << "Notes: "; getline(cin, Notes);
 
     tempDriver->SetDriverName(DriverName);
     tempDriver->SetDriverPhone(DriverPhone);
@@ -107,7 +119,11 @@ void Drivers::EditDriver()
     tempDriver->SetIsAvailable(IsAvailable);
     tempDriver->SetAllowPets(AllowPets);
     tempDriver->SetNotes(Notes);
-    tempDriver->SetVehicleType(tempType);
+    tempDriver->SetVehicleType(VehicleType);
+
+    SaveDrivers();
+
+    cout << "Driver " << tempDriver->GetDriverName() << " with ID#" << tempDriver->GetDriverID() << " has been updated." << endl;
 }
 
 void Drivers::RemoveDriver(Driver *driver)
@@ -115,6 +131,7 @@ void Drivers::RemoveDriver(Driver *driver)
     delete DriverList[driver->GetDriverID()];
     DriverList[driver->GetDriverID()] = NULL;
     DecrementDriverCount();
+    SaveDrivers();
 }
 
 void Drivers::PrintDrivers()
@@ -133,20 +150,38 @@ void Drivers::PrintDriver()
 
 void Drivers::SaveDrivers()
 {
+    cout << "Saving Drivers..." << endl;
     ofstream outfile;
     outfile.open("drivers.dat");
+
     for(auto it = DriverList.begin(); it != DriverList.end(); ++it) {
-        outfile << it->second->GetDriverID() << "|" << it->second->GetDriverName() << "|" << it->second->GetDriverPhone() << "|" << it->second->GetVehicleCapacity() << "|"
-        << it->second->GetVehicleType() << "|" << it->second->GetCanHandicap() << "|" << it->second->GetRating() << "|" << it->second->GetIsAvailable() << "|"
-        << it->second->GetAllowPets() << "|" << it->second->GetNotes() << endl;
+        outfile
+        << it->second->GetDriverName() << "|"
+        << it->second->GetDriverID() << "|"
+        << it->second->GetDriverPhone() << "|"
+        << it->second->GetVehicleCapacity() << "|"
+        << char(it->second->GetVehicleType()) << "|"
+        << it->second->GetCanHandicap() << "|"
+        << it->second->GetRating() << "|"
+        << it->second->GetIsAvailable() << "|"
+        << it->second->GetAllowPets() << "|"
+        << it->second->GetNotes()
+        << endl;
     }
+
+    outfile.seekp(-1, ios::end); //remove last newline, replace with EOF
+    outfile.put(' ');
+
     outfile.close();
+    cout << "Drivers saved." << endl;
 }
 
 void Drivers::LoadDrivers()
 {
+    cout << "Loading drivers..." << endl;
     ifstream infile;
     infile.open("drivers.dat");
+    if (infile.fail()) { cout << "Error opening file (maybe it doesn't exist?)." << endl; return; }
     string DriverName;
     string intDriverPhone;
     string intVehicleCapacity;
@@ -160,8 +195,8 @@ void Drivers::LoadDrivers()
     
     while(!infile.eof())
     {
-        getline(infile, intDriverID, '|');
         getline(infile, DriverName, '|');
+        getline(infile, intDriverID, '|');
         getline(infile, intDriverPhone, '|');
         getline(infile, intVehicleCapacity, '|');
         getline(infile, charVehicleType, '|');
@@ -171,12 +206,14 @@ void Drivers::LoadDrivers()
         getline(infile, boolAllowPets, '|');
         getline(infile, Notes);
 
-        cout << intDriverID << "|" << DriverName << "|" << intDriverPhone << "|" << intVehicleCapacity << "|" << charVehicleType << "|" << boolCanHandicap << "|"
-        << doubleRating << "|" << boolIsAvailable << "|" << boolAllowPets << "|" << Notes << endl;
-        cout << stoi(intDriverID) <<endl;
-        //Driver* newDriver = new Driver(stoi(intDriverID), DriverName, stoi(intDriverPhone), stoi(intVehicleCapacity), (Type)charVehicleType[0],
-        //stoi(boolCanHandicap), stod(doubleRating), stoi(boolIsAvailable), stoi(boolAllowPets), Notes);
+        Driver* newDriver = new Driver(stoi(intDriverID), DriverName,
+        stol(intDriverPhone), stoi(intVehicleCapacity),
+        (Type)charVehicleType[0], stoi(boolCanHandicap),
+        stod(doubleRating), stoi(boolIsAvailable),
+        stoi(boolAllowPets), Notes);
 
-        //DriverList[stoi(intDriverID)] = newDriver;
+        DriverList[stoi(intDriverID)] = newDriver;
     }
+    infile.close();
+    cout << "Drivers loaded." << endl;
 }

@@ -8,9 +8,6 @@
 #include <sstream>
 
 #include "passenger.h"
-#include "rides.h"
-#include "drivers.h"
-
 
 using namespace std;
 
@@ -25,6 +22,7 @@ class Passengers
         void AddPassenger(Passenger*);
         void EditPassenger();
         void RemovePassenger(int);
+        void RemovePassenger();
         void IncrementPassengerCount();
         void DecrementPassengerCount();
         Passenger* SearchPassengerByID(int);
