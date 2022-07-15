@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Jul 14 00:10:21 2022
+# Make data base, printed on Fri Jul 15 20:24:23 2022
 
 # Variables
 
@@ -49,11 +51,13 @@ GITHUB_GRAPHQL_URL = https://api.github.com/graphql
 # environment
 RUBY_HOME = /opt/ruby/lts
 # environment
-GITHUB_TOKEN = ghu_keHDJxiy2L8ujwE0sr3y5m5CncbVdX413GlN
+GITHUB_TOKEN = ghu_pyn5ku02fRNYkyy93ZJXJX3uCxVaKx2feAc5
 # makefile
 MAKEFILE_LIST := 
 # environment
 ENABLE_DYNAMIC_INSTALL = true
+# environment
+DEBUG = ,vs-ssh
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
@@ -97,7 +101,7 @@ NUGET_XMLDOC_MODE = skip
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-d88394ea-4842-466e-94a2-a4aa29fbae40.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-336349ab-8d75-4f34-a135-058c3c9dd64c.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -139,7 +143,7 @@ HOME = /home/codespace
 # environment
 LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # environment
 NVM_CD_FLAGS = 
 # automatic
@@ -166,6 +170,7 @@ SDKMAN_VERSION = 5.15.0
 MAKE = $(MAKE_COMMAND)
 # environment
 HUGO_ROOT = /home/codespace/.hugo
+ 
 # default
 MAKECMDGOALS := all
 # environment
@@ -179,7 +184,7 @@ JAVA_HOME = /opt/java/lts
 # default
 MAKE_VERSION := 4.2.1
 # environment
-GITHUB_CODESPACE_TOKEN = AD7C3UDZYBGOPNL3OGYMZBDC2ADYRANCNFSM4ABSNVVQ
+GITHUB_CODESPACE_TOKEN = AD7C3UC4MTCJGE3ZCI7D7ETC2JILVANCNFSM4ABSNVVQ
 # environment
 USER = codespace
 # environment
@@ -244,6 +249,7 @@ GITHUB_API_URL = https://api.github.com
 PWD = /workspaces/CSCE1040
 # environment
 LC_ALL = C
+ 
 # environment
 GIT_COMMITTER_NAME = GitHub
 # environment
@@ -275,7 +281,7 @@ ContainerVersion = 12
 # environment
 NVM_RC_VERSION = 
 # variable set hash-table stats:
-# Load=132/1024=13%, Rehash=0, Collisions=12/154=8%
+# Load=133/1024=13%, Rehash=0, Collisions=12/155=8%
 
 # Pattern-specific Variable Values
 
@@ -284,9 +290,6 @@ NVM_RC_VERSION =
 # Directories
 
 # . (device 1792, inode 1310870): 20 files, no impossibilities.
- 
-make: *** No rule to make target 'all'.  Stop.
-
 
 # 20 files, no impossibilities in 1 directories.
 
@@ -344,6 +347,6 @@ GNUmakefile:
 # strcache performance: lookups = 31 / hit rate = 9%
 # hash-table stats:
 # Load=28/8192=0%, Rehash=0, Collisions=1/31=3%
-# Finished Make data base on Thu Jul 14 00:10:21 2022
+# Finished Make data base on Fri Jul 15 20:24:23 2022
 
  

@@ -1,3 +1,18 @@
+/**
+ * @file main.cpp
+ * @author Mason Besmer (masonbesmer@my.unt.edu)
+ * @brief 
+ * @version 1.0
+ * @date 2022-07-15
+ * 
+ * @details It is a rideshare program called U1040.
+ *          It is a program that allows you to create a list of drivers and passenger and rides.
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
+
+
 #include "driver.h"
 #include "passenger.h"
 #include "drivers.h"
@@ -90,19 +105,26 @@ int main()
     // //z.LoadPassengers();
     // //p.EditPassenger();
     // //z.PrintPassengers();
-
     // //f.EditDriver();
-
+    cout << "UNT Engineering CSCE1040 Project 1 Mason Besmer masonbesmer@my.unt.edu" << endl;
+    cout << "Program is starting..." << endl;
     Passengers passengers;
     Rides rides;
     Drivers drivers;
 
+    cout << "Please wait while I load some things..." << endl;
     passengers.LoadPassengers();
     rides.LoadRides();
     drivers.LoadDrivers();
 
-    int choice = -1;
+    // cout << "  _    _   __    ___    _  _      ___  " << endl
+    //     << " | |  | | /_ |  / _ \\  | || |    / _ \\ " << endl
+    //     << " | |  | |  | | | | | | | || |_  | | | |" << endl
+    //     << " | |  | |  | | | | | | |__   _| | | | |" << endl
+    //     << " | |__| |  | | | |_| |    | |   | |_| |" << endl
+    //     << "  \\____/   |_|  \\___/     |_|    \\___/ " << endl << endl;
 
+    int choice = -1;
     while(choice !=0)
     {
         cout << "1. Add Passenger" << endl;
@@ -122,6 +144,11 @@ int main()
         cout << "15. Print rides by Status" << endl;
         cout << "16. Print Schedule for Driver" << endl;
         cout << "17. Print Schedule for Passenger" << endl;
+        cout << "18. Print Ride by ID" << endl;
+        cout << "19. Print Driver by ID" << endl;
+        cout << "20. Print Passenger by ID" << endl;
+        cout << "21. Clear canceled rides" << endl;
+        cout << "22. Clear completed rides" << endl;
         cout << "0. Exit" << endl;
         cout << "Enter your choice: ";
         cin >> choice;
@@ -129,6 +156,7 @@ int main()
         switch(choice)
         {
             case 1:
+                cout << "Sure, lets add a passenger!" << endl;
                 passengers.AddPassenger();
                 break;
             case 2:
@@ -188,8 +216,35 @@ int main()
             case 17:
                 cout << "Please use 13 or 14 for this function" << endl;
                 break;
+            case 18:
+                cout << "Lets print a ride by ID.." << endl;
+                rides.PrintRide();
+                break;
+            case 19:
+                cout << "Lets print a driver by ID.." << endl;
+                drivers.PrintDriver();
+                break;
+            case 20:
+                cout << "Lets print a passenger by ID.." << endl;
+                passengers.PrintPassenger();
+                break;
+            case 21:
+                cout << "Lets clear canceled rides.." << endl;
+                rides.ClearCompletedRides();
+                cout << "Completed Rides Cleared" << endl;
+                break;
+            case 22:
+                rides.ClearCanceledRides();
+                cout << "Canceled Rides Cleared" << endl;
+                break;
             case 0:
-                cout << "Exiting..." << endl;
+                //redundant save
+                rides.SaveRides();
+                drivers.SaveDrivers();
+                passengers.SavePassengers();
+                cout << "================================" << endl;
+                cout << "Thank you for using U1040." << endl;
+                cout << "================================" << endl;
                 break;
             default:
                 cout << "Invalid choice" << endl;

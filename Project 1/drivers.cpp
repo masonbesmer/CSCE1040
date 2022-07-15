@@ -150,70 +150,56 @@ void Drivers::PrintDriver()
 
 void Drivers::SaveDrivers()
 {
-    cout << "Saving Drivers..." << endl;
-    ofstream outfile;
-    outfile.open("drivers.dat");
-
-    for(auto it = DriverList.begin(); it != DriverList.end(); ++it) {
-        outfile
-        << it->second->GetDriverName() << "|"
-        << it->second->GetDriverID() << "|"
-        << it->second->GetDriverPhone() << "|"
-        << it->second->GetVehicleCapacity() << "|"
-        << char(it->second->GetVehicleType()) << "|"
-        << it->second->GetCanHandicap() << "|"
-        << it->second->GetRating() << "|"
-        << it->second->GetIsAvailable() << "|"
-        << it->second->GetAllowPets() << "|"
-        << it->second->GetNotes()
+    cout << "Saving drivers..." << endl;
+    ofstream outFile;
+    outFile.open("drivers.dat");
+    for (auto x : DriverList) {
+        outFile << x.second->GetDriverName() << "|"
+        << x.second->GetDriverID() << "|"
+        << x.second->GetDriverPhone() << "|"
+        << x.second->GetVehicleCapacity() << "|"
+        << char(x.second->GetVehicleType()) << "|"
+        << x.second->GetCanHandicap() << "|"
+        << x.second->GetRating() << "|"
+        << x.second->GetIsAvailable() << "|"
+        << x.second->GetAllowPets() << "|"
+        << x.second->GetNotes()
         << endl;
     }
 
-    outfile.seekp(-1, ios::end); //remove last newline, replace with EOF
-    outfile.put(' ');
-
-    outfile.close();
+    outFile.close();
     cout << "Drivers saved." << endl;
 }
 
 void Drivers::LoadDrivers()
 {
-    cout << "Loading drivers..." << endl;
-    ifstream infile;
-    infile.open("drivers.dat");
-    if (infile.fail()) { cout << "Error opening file (maybe it doesn't exist?)." << endl; return; }
-    string DriverName;
-    string intDriverPhone;
-    string intVehicleCapacity;
-    string boolCanHandicap;
-    string doubleRating;
-    string boolIsAvailable;
-    string boolAllowPets;
-    string intDriverID;
-    string charVehicleType;
-    string Notes;
-    
-    while(!infile.eof())
+    cout << "Loading Drivers..." << endl;
+    ifstream inFile;
+    inFile.open("drivers.dat");
+    string line;
+    while (getline(inFile, line))
     {
-        getline(infile, DriverName, '|');
-        getline(infile, intDriverID, '|');
-        getline(infile, intDriverPhone, '|');
-        getline(infile, intVehicleCapacity, '|');
-        getline(infile, charVehicleType, '|');
-        getline(infile, boolCanHandicap, '|');
-        getline(infile, doubleRating, '|');
-        getline(infile, boolIsAvailable, '|');
-        getline(infile, boolAllowPets, '|');
-        getline(infile, Notes);
-
-        Driver* newDriver = new Driver(stoi(intDriverID), DriverName,
-        stol(intDriverPhone), stoi(intVehicleCapacity),
-        (Type)charVehicleType[0], stoi(boolCanHandicap),
-        stod(doubleRating), stoi(boolIsAvailable),
-        stoi(boolAllowPets), Notes);
-
-        DriverList[stoi(intDriverID)] = newDriver;
+        stringstream ss(line);
+        string token;
+        vector<string> tokens;
+        while (getline(ss, token, '|'))
+        {
+            tokens.push_back(token);
+        }
+        Driver *newDriver = new Driver(
+            stoi(tokens[1]),
+            tokens[0],
+            stol(tokens[2]),
+            stoi(tokens[3]),
+            (Type)(char(tokens[4][0])),
+            stoi(tokens[5]),
+            stod(tokens[6]),
+            stoi(tokens[7]),
+            stoi(tokens[8]),
+            tokens[9]);
+        DriverList[newDriver->GetDriverID()] = newDriver;
     }
-    infile.close();
-    cout << "Drivers loaded." << endl;
+    
+    inFile.close();
+    cout << DriverList.size() << " drivers loaded." << endl;
 }

@@ -46,7 +46,6 @@ class Rides
         void DecrementRideCount();//
         Ride* SearchRideByID(int);//
         void PrintEveryRideEver();
-        void ClearCanceledRides();
         time_t StringToEpochTime(string);
         bool IsTimeBetween(time_t, time_t, time_t);
         bool CheckIfDriverIsAvailableAtThisTime(int, time_t, time_t);
@@ -63,6 +62,9 @@ class Rides
         void PrintPassengerSchedules();
         string GetTimestamp(time_t);
         void PrintRidesByStatus(char);
+        void ClearCanceledRides();
+        void ClearCompletedRides();
+        void UpdateRideStatuses();
 };
 
 #endif

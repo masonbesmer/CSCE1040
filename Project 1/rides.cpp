@@ -87,14 +87,16 @@ void Rides::RemoveRide()
     int RideID;
     cout << "Ride ID to delete: "; cin >> RideID;
     delete RideList[RideID];
-    RideList[RideID] = NULL;
+    RideList.erase(RideID);
+    SaveRides();
     DecrementRideCount();
 }
 
 void Rides::RemoveRide(Ride *removeRide)
 {
     delete RideList[removeRide->GetRideID()];
-    RideList[removeRide->GetRideID()] = NULL;
+    RideList.erase(removeRide->GetRideID());
+    SaveRides();
     DecrementRideCount();
 }
 
@@ -167,19 +169,6 @@ void Rides::PrintEveryRideEver()
     for (auto x : RideList)
     {
         x.second->PrintRide();
-    }
-}
-
-void Rides::ClearCanceledRides()
-{
-    for (auto x : RideList)
-    {
-        if (x.second->GetRideStatus() == Cancelled)
-        {
-            delete x.second;
-            x.second = NULL;
-            DecrementRideCount();
-        }
     }
 }
 
@@ -293,6 +282,10 @@ bool Rides::CheckIfDriverIsAvailableAtThisTime(int driverID, time_t pickupTime, 
             }
         } else return true;
     }
+    if (RideList.size() == 0)
+    {
+        return true;
+    }
     return false;
 }
 
@@ -310,6 +303,10 @@ bool Rides::CheckIfPassengerIsAvailableAtThisTime(int passengerID, time_t pickup
                 }
             }
         } else return true;
+    }
+    if (RideList.size() == 0)
+    {
+        return true;
     }
     return false;
 }
@@ -444,6 +441,45 @@ void Rides::PrintRidesByStatus(char status)
     }
 }
 
+void Rides::ClearCanceledRides()
+{
+    cout << "check 1" << endl;
+    for (auto x : RideList)
+    {
+        if (char(x.second->GetRideStatus()) == 'C')
+        {
+            delete RideList[x.second->GetRideID()];
+            RideList.erase(x.second->GetRideID());
+            SaveRides();
+        }
+    }
+}
+
+void Rides::ClearCompletedRides()
+{
+    for (auto x : RideList)
+    {
+        if (char(x.second->GetRideStatus()) == 'C')
+        {
+            delete RideList[x.second->GetRideID()];
+            RideList.erase(x.second->GetRideID());
+            SaveRides();
+        }
+    }
+}
+
+void Rides::UpdateRideStatuses()
+{
+    for (auto x : RideList)
+    {
+        if (x.second->GetDropoffTime() < time(0))
+        {
+            x.second->SetRideStatus('C');
+        }
+    }
+    SaveRides();
+}
+
 //save rides to rides.dat using | delimiter
 void Rides::SaveRides()
 {
@@ -467,14 +503,10 @@ void Rides::SaveRides()
         << endl;
     }
 
-    // outFile.seekp(-1, ios::end); //remove last newline, replace with EOF
-    // outFile.put(' ');
-
     outFile.close();
     cout << "Rides saved." << endl;
 }
 
-//trying a new way to save (again...) school is a learning experience, please dont count off because it isnt consistent
 void Rides::LoadRides()
 {
     cout << "Loading rides..." << endl;
@@ -507,49 +539,43 @@ void Rides::LoadRides()
         RideList[tempRide->GetRideID()] = tempRide;
     }
     inFile.close();
-    cout << "Rides loaded." << endl;
+    cout << RideList.size() << " rides loaded." << endl;
+    cout << "Updating statuses of rides..." << endl;
+    UpdateRideStatuses();
+    cout << "Done." << endl;
 }
 
 void Rides::LoadDrivers()
 {
-    cout << "Loading drivers..." << endl;
-    ifstream infile;
-    infile.open("drivers.dat");
-    if (infile.fail()) { cout << "Error opening file (maybe it doesn't exist?)." << endl; return; }
-    string DriverName;
-    string intDriverPhone;
-    string intVehicleCapacity;
-    string boolCanHandicap;
-    string doubleRating;
-    string boolIsAvailable;
-    string boolAllowPets;
-    string intDriverID;
-    string charVehicleType;
-    string Notes;
-    
-    while(!infile.eof())
+    cout << "Loading Drivers..." << endl;
+    ifstream inFile;
+    inFile.open("drivers.dat");
+    string line;
+    while (getline(inFile, line))
     {
-        getline(infile, DriverName, '|');
-        getline(infile, intDriverID, '|');
-        getline(infile, intDriverPhone, '|');
-        getline(infile, intVehicleCapacity, '|');
-        getline(infile, charVehicleType, '|');
-        getline(infile, boolCanHandicap, '|');
-        getline(infile, doubleRating, '|');
-        getline(infile, boolIsAvailable, '|');
-        getline(infile, boolAllowPets, '|');
-        getline(infile, Notes);
-
-        Driver* newDriver = new Driver(stoi(intDriverID), DriverName,
-        stol(intDriverPhone), stoi(intVehicleCapacity),
-        (Type)charVehicleType[0], stoi(boolCanHandicap),
-        stod(doubleRating), stoi(boolIsAvailable),
-        stoi(boolAllowPets), Notes);
-
-        DriverList[stoi(intDriverID)] = newDriver;
+        stringstream ss(line);
+        string token;
+        vector<string> tokens;
+        while (getline(ss, token, '|'))
+        {
+            tokens.push_back(token);
+        }
+        Driver *newDriver = new Driver(
+            stoi(tokens[1]),
+            tokens[0],
+            stol(tokens[2]),
+            stoi(tokens[3]),
+            (Type)(char(tokens[4][0])),
+            stoi(tokens[5]),
+            stod(tokens[6]),
+            stoi(tokens[7]),
+            stoi(tokens[8]),
+            tokens[9]);
+        DriverList[newDriver->GetDriverID()] = newDriver;
     }
-    infile.close();
-    cout << "Drivers loaded." << endl;
+    
+    inFile.close();
+    cout << DriverList.size() << " drivers loaded." << endl;
 }
 
 void Rides::LoadPassengers()
@@ -557,29 +583,25 @@ void Rides::LoadPassengers()
     cout << "Loading passengers..." << endl;
     ifstream infile;
     infile.open("passengers.dat");
-    if (infile.fail()) { cout << "Error opening file (maybe it doesn't exist?)." << endl; return; }
-    string name;
-    string id;
-    string payment;
-    string handicap;
-    string pets;
-    string ratingMin;
-
-    while(!infile.eof())
+    string line;
+    while(getline(infile, line))
     {
-        getline(infile, name, '|');
-        getline(infile, id, '|');
-        getline(infile, payment, '|');
-        getline(infile, handicap, '|');
-        getline(infile, pets, '|');
-        getline(infile, ratingMin);
-
-        Passenger* passenger = new Passenger(name, stoi(id),
-        static_cast<Payment>(char(payment[0])), stoi(handicap),
-        stoi(pets), stod(ratingMin));
-
-        PassengerList[stoi(id)] = passenger;
+        stringstream ss(line);
+        string token;
+        vector<string> tokens;
+        while(getline(ss, token, '|'))
+        {
+            tokens.push_back(token);
+        }
+        Passenger* passenger = new Passenger(
+            tokens[0],
+            stoi(tokens[1]),
+            char(tokens[2][0]),
+            stoi(tokens[3]),
+            stoi(tokens[4]),
+            stod(tokens[5]));
+        PassengerList[passenger->GetId()] = passenger;
     }
     infile.close();
-    cout << "Passengers loaded." << endl;
+    cout << PassengerList.size() << " passengers loaded." << endl;
 }

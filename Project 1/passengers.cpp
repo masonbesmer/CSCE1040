@@ -120,28 +120,32 @@ void Passengers::PrintPassengers()
     }
 }
 
-//save passengers using | as delimiter
+void Passengers::PrintPassenger()
+{
+    int id;
+    cout << "Enter the ID of the passenger you want to print: "; cin >> id;
+    PassengerList[id]->PrintPassenger();
+}
+
 void Passengers::SavePassengers()
 {
     cout << "Saving passengers..." << endl;
+    
     ofstream outfile;
-
     outfile.open("passengers.dat");
-    for(auto it = PassengerList.begin(); it != PassengerList.end(); ++it)
+
+    for(auto x : PassengerList)
     {
-        outfile << it->second->GetName() << "|"
-        << it->second->GetId() << "|"
-        << char(it->second->GetPaymentMethod()) << "|"
-        << it->second->GetHandicap() << "|"
-        << it->second->GetPets() << "|"
-        << it->second->GetRatingMin() << endl;
+        outfile << x.first << "|"
+        << x.second->GetName() << "|"
+        << x.second->GetPaymentMethod() << "|"
+        << x.second->GetHandicap() << "|"
+        << x.second->GetPets() << "|"
+        << x.second->GetRatingMin()
+        << endl;
     }
 
-    outfile.seekp(-1, ios::end); //remove last newline, replace with EOF
-    outfile.put(' ');
-
     outfile.close();
-
     cout << "Passengers saved." << endl;
 }
 
@@ -150,29 +154,25 @@ void Passengers::LoadPassengers()
     cout << "Loading passengers..." << endl;
     ifstream infile;
     infile.open("passengers.dat");
-    if (infile.fail()) { cout << "Error opening file (maybe it doesn't exist?)." << endl; return; }
-    string name;
-    string id;
-    string payment;
-    string handicap;
-    string pets;
-    string ratingMin;
-
-    while(!infile.eof())
+    string line;
+    while(getline(infile, line))
     {
-        getline(infile, name, '|');
-        getline(infile, id, '|');
-        getline(infile, payment, '|');
-        getline(infile, handicap, '|');
-        getline(infile, pets, '|');
-        getline(infile, ratingMin);
-
-        Passenger* passenger = new Passenger(name, stoi(id),
-        static_cast<Payment>(char(payment[0])), stoi(handicap),
-        stoi(pets), stod(ratingMin));
-
-        PassengerList[stoi(id)] = passenger;
+        stringstream ss(line);
+        string token;
+        vector<string> tokens;
+        while(getline(ss, token, '|'))
+        {
+            tokens.push_back(token);
+        }
+        Passenger* passenger = new Passenger(
+            tokens[0],
+            stoi(tokens[1]),
+            char(tokens[2][0]),
+            stoi(tokens[3]),
+            stoi(tokens[4]),
+            stod(tokens[5]));
+        PassengerList[passenger->GetId()] = passenger;
     }
     infile.close();
-    cout << "Passengers loaded." << endl;
+    cout << PassengerList.size() << " passengers loaded." << endl;
 }
