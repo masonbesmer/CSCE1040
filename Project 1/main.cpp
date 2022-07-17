@@ -22,90 +22,6 @@
 
 int main()
 {
-    // // // Driver d3;
-    // //Driver a,b,c,d,e,g;
-
-    // // //p1.PrintPassenger();
-
-    // Drivers f;
-
-    // // f.AddDriver(&a);
-    // // f.AddDriver(&b);
-    // // f.AddDriver(&c);
-    // // f.AddDriver(&d);
-    // // f.AddDriver(&e);
-    // // f.AddDriver(&g);
-    // f.LoadDrivers();
-    // //f.PrintDrivers();
-
-    // //Ride a1,a2,a3;
-
-    // // a1.SetRideID(1);
-    // // a1.SetPartySize(2);
-    // // a1.SetPickupLocation("123 Main St");
-    // // a1.SetDropoffLocation("456 Main St");
-    // // a1.SetPickupTime(time(0));
-    // // a1.SetDropoffTime(time(0));
-    // // a1.SetIncludesPets(true);
-    // // a1.SetRideStatus('L');
-    // // a1.SetRating(5);
-    // // a1.SetDriverID(1);
-    // // a1.SetPassengerID(1);
-
-    // // a2.SetRideID(2);
-    // // a2.SetPartySize(3);
-    // // a2.SetPickupLocation("123 Main St");
-    // // a2.SetDropoffLocation("456 Main St");
-    // // a2.SetPickupTime(time(0));
-    // // a2.SetDropoffTime(time(0));
-    // // a2.SetIncludesPets(true);
-    // // a2.SetRideStatus('L');
-    // // a2.SetRating(5);
-    // // a2.SetDriverID(1);
-    // // a2.SetPassengerID(1);
-
-    // // a3.SetRideID(3);
-    // // a3.SetPartySize(4);
-    // // a3.SetPickupLocation("123 Main St");
-    // // a3.SetDropoffLocation("456 Main St");
-    // // a3.SetPickupTime(time(0));
-    // // a3.SetDropoffTime(time(0));
-    // // a3.SetIncludesPets(false);
-    // // a3.SetRideStatus('L');
-    // // a3.SetRating(5);
-    // // a3.SetDriverID(1);
-    // // a3.SetPassengerID(1);
-
-    // Rides r;
-    
-    // // r.AddRide(&a1);
-    // // r.AddRide(&a2);
-    // // r.AddRide(&a3);
-    // r.LoadRides();
-    // r.LoadDrivers();
-    // r.LoadPassengers();
-    // r.PrintEveryRideEver();
-    // r.AddRide();
-    // //cout << r.CheckIfDriverCanDoPets(2, true);
-    // f.EditDriver();
-    // r.PrintDriverRides(1);
-
-    // //Passenger q,x,v,j,k,l,m;
-
-    // //Passengers z;
-
-    // // z.AddPassenger(&q);
-    // // z.AddPassenger(&x);
-    // // z.AddPassenger(&v);
-    // // z.AddPassenger(&j);
-    // // z.AddPassenger(&k);
-    // // z.AddPassenger(&l);
-    // // z.AddPassenger(&m);
-
-    // //z.LoadPassengers();
-    // //p.EditPassenger();
-    // //z.PrintPassengers();
-    // //f.EditDriver();
     cout << "UNT Engineering CSCE1040 Project 1 Mason Besmer masonbesmer@my.unt.edu" << endl;
     cout << "Program is starting..." << endl;
     Passengers passengers;
@@ -229,7 +145,7 @@ int main()
                 passengers.PrintPassenger();
                 break;
             case 21:
-                cout << "Lets clear canceled rides.." << endl;
+                cout << "Lets clear completed rides.." << endl;
                 rides.ClearCompletedRides();
                 cout << "Completed Rides Cleared" << endl;
                 break;

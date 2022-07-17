@@ -86,7 +86,6 @@ void Rides::RemoveRide()
 {
     int RideID;
     cout << "Ride ID to delete: "; cin >> RideID;
-    delete RideList[RideID];
     RideList.erase(RideID);
     SaveRides();
     DecrementRideCount();
@@ -94,7 +93,6 @@ void Rides::RemoveRide()
 
 void Rides::RemoveRide(Ride *removeRide)
 {
-    delete RideList[removeRide->GetRideID()];
     RideList.erase(removeRide->GetRideID());
     SaveRides();
     DecrementRideCount();
@@ -443,12 +441,10 @@ void Rides::PrintRidesByStatus(char status)
 
 void Rides::ClearCanceledRides()
 {
-    cout << "check 1" << endl;
     for (auto x : RideList)
     {
         if (char(x.second->GetRideStatus()) == 'C')
         {
-            delete RideList[x.second->GetRideID()];
             RideList.erase(x.second->GetRideID());
             SaveRides();
         }
@@ -457,13 +453,19 @@ void Rides::ClearCanceledRides()
 
 void Rides::ClearCompletedRides()
 {
-    for (auto x : RideList)
+    // for (auto x : RideList)
+    // {
+    //     if (char(x.second->GetRideStatus()) == 'C')
+    //     {
+    //         RideList.erase(x.second->GetRideID());
+    //         SaveRides();
+    //     }
+    // }
+    for (auto itr=RideList.begin(); itr!=RideList.end(); itr++)
     {
-        if (char(x.second->GetRideStatus()) == 'C')
+        if (char(itr->second->GetRideStatus()) == 'C')
         {
-            delete RideList[x.second->GetRideID()];
-            RideList.erase(x.second->GetRideID());
-            SaveRides();
+            itr = RideList.erase(itr);
         }
     }
 }

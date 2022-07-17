@@ -76,8 +76,7 @@ void Drivers::RemoveDriver()
 {
     int DriverID;
     cout << "Driver ID: "; cin >> DriverID;
-    delete DriverList[DriverID];
-    DriverList[DriverID] = NULL;
+    DriverList.erase(DriverID);
     DecrementDriverCount();
 }
 
@@ -128,8 +127,7 @@ void Drivers::EditDriver()
 
 void Drivers::RemoveDriver(Driver *driver)
 {
-    delete DriverList[driver->GetDriverID()];
-    DriverList[driver->GetDriverID()] = NULL;
+    DriverList.erase(driver->GetDriverID());
     DecrementDriverCount();
     SaveDrivers();
 }

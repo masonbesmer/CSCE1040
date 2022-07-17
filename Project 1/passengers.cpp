@@ -84,7 +84,6 @@ void Passengers::EditPassenger()
 
 void Passengers::RemovePassenger(int id)
 {
-    delete PassengerList[id];
     PassengerList[id] = NULL;
     SavePassengers();
     cout << "Passenger removed successfully!" << endl;
