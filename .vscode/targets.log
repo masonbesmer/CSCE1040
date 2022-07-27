@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Jul 20 15:54:43 2022
+# Make data base, printed on Wed Jul 27 18:32:29 2022
 
 # Variables
 
@@ -51,11 +51,13 @@ GITHUB_GRAPHQL_URL = https://api.github.com/graphql
 # environment
 RUBY_HOME = /opt/ruby/lts
 # environment
-GITHUB_TOKEN = ghu_auFz4O1UWrO3OXl0TwNDROmbDDmgkP27Tvsf
+GITHUB_TOKEN = ghu_zxLPy07HyFffrwZhDtQMNxQ3Temf273HU6cx
 # makefile
 MAKEFILE_LIST := 
 # environment
 ENABLE_DYNAMIC_INSTALL = true
+# environment
+DEBUG = ,vs-ssh
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
@@ -99,7 +101,7 @@ NUGET_XMLDOC_MODE = skip
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-3b4a543d-e358-4bb8-a1b5-c693bc51500d.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-bbacfac7-684a-4e8f-bd50-808546e5d354.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -181,7 +183,7 @@ JAVA_HOME = /opt/java/lts
 # default
 MAKE_VERSION := 4.2.1
 # environment
-GITHUB_CODESPACE_TOKEN = AD7C3UDXMITTXSQPBAIEXDTC3DG6ZANCNFSM4ABSNVVQ
+GITHUB_CODESPACE_TOKEN = AD7C3UH7WJV7RLXUWGSVGJLC4IWQJANCNFSM4ABSNVVQ
 # environment
 USER = codespace
 # environment
@@ -260,6 +262,7 @@ SUFFIXES :=
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
 # environment
 rvm_loaded_flag = 1
+ 
 # default
 .RECIPEPREFIX := 
 # default
@@ -273,7 +276,7 @@ ContainerVersion = 12
 # environment
 NVM_RC_VERSION = 
 # variable set hash-table stats:
-# Load=130/1024=13%, Rehash=0, Collisions=12/152=8%
+# Load=131/1024=13%, Rehash=0, Collisions=12/153=8%
 
 # Pattern-specific Variable Values
 
@@ -281,10 +284,9 @@ NVM_RC_VERSION =
 
 # Directories
 
-# . (device 1792, inode 1310870): 20 files, no impossibilities.
+# . (device 1792, inode 1310870): 21 files, no impossibilities.
 
-# 20 files, no impossibilities in 1 directories.
- 
+# 21 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -334,12 +336,12 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 28 / storage = 306 B / avg = 10 B
-# current buf: size = 8162 B / used = 306 B / count = 28 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 29 / storage = 322 B / avg = 11 B
+# current buf: size = 8162 B / used = 322 B / count = 29 / avg = 11 B
 
-# strcache performance: lookups = 31 / hit rate = 9%
+# strcache performance: lookups = 32 / hit rate = 9%
 # hash-table stats:
-# Load=28/8192=0%, Rehash=0, Collisions=1/31=3%
-# Finished Make data base on Wed Jul 20 15:54:43 2022
+# Load=29/8192=0%, Rehash=0, Collisions=1/32=3%
+# Finished Make data base on Wed Jul 27 18:32:29 2022
 
  

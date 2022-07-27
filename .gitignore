@@ -30,4 +30,5 @@
 *.exe
 *.out
 *.app
-.vscode/*
+*.vscode/*
+.vscode/targets.log
