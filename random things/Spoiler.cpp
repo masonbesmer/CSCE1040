@@ -4,7 +4,7 @@ using namespace std;
 
 //spoils every character in a string
 int main() {
-    string s = "Hello World";
+    string s = "https://www.urbandictionary.com/define.php?term=facial";
 
     int num = s.length();
 
